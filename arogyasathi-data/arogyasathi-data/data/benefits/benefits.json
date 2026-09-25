@@ -1,0 +1,161 @@
+{
+  "benefits_by_scheme": {
+    "PMJAY": [
+      {
+        "benefit_id": "B_PMJAY_001",
+        "description": "Cashless family-floater health cover of Rs. 5,00,000 per family per year for secondary and tertiary care hospitalization at empanelled public and private hospitals across India.",
+        "user_friendly_description": "Up to Rs 5 lakh a year in free hospital treatment for your whole family, with no cash needed upfront.",
+        "source_id": "SRC001",
+        "verification_status": "VERIFIED"
+      },
+      {
+        "benefit_id": "B_PMJAY_002",
+        "description": "Covers 3 days of pre-hospitalization and 15 days of post-hospitalization expenses including diagnostics and medicines.",
+        "user_friendly_description": "Tests and medicines just before and for 15 days after your hospital stay are also covered.",
+        "source_id": "SRC001",
+        "verification_status": "VERIFIED"
+      },
+      {
+        "benefit_id": "B_PMJAY_003",
+        "description": "No restriction on family size, age, or gender; benefit is a family floater.",
+        "user_friendly_description": "Every member of your family can use the same yearly amount - there's no per-person cap.",
+        "source_id": "SRC001",
+        "verification_status": "VERIFIED"
+      },
+      {
+        "benefit_id": "B_PMJAY_004",
+        "description": "All pre-existing diseases are covered from day one of enrolment, with no waiting period.",
+        "user_friendly_description": "Illnesses you already had before joining are covered immediately - no waiting period.",
+        "source_id": "SRC001",
+        "verification_status": "VERIFIED"
+      },
+      {
+        "benefit_id": "B_PMJAY_005",
+        "description": "Benefits are portable nationwide - a beneficiary can use any empanelled hospital in any state, not only their home state.",
+        "user_friendly_description": "You can get treated at any empanelled hospital anywhere in India, even outside your home state.",
+        "source_id": "SRC001",
+        "verification_status": "VERIFIED"
+      },
+      {
+        "benefit_id": "B_PMJAY_006",
+        "description": "Approximately 1,929 treatment packages (per nha.gov.in) across roughly 24 medical specialities are covered; exact current package count is periodically revised (HBP versions) and should be reconfirmed.",
+        "user_friendly_description": "Around 1,900+ different treatments and procedures are covered, from surgeries to cancer care - though the exact number changes over time as it's updated.",
+        "source_id": "SRC001",
+        "verification_status": "NEEDS_VERIFICATION"
+      }
+    ],
+    "VAYVANDANA": [
+      {
+        "benefit_id": "B_VAY_001",
+        "description": "Rs. 5,00,000 per year free health cover for the senior citizen (70+), irrespective of socio-economic status.",
+        "user_friendly_description": "Up to Rs 5 lakh a year in free hospital treatment for the senior citizen, no matter their income.",
+        "source_id": "SRC002",
+        "verification_status": "VERIFIED"
+      },
+      {
+        "benefit_id": "B_VAY_002",
+        "description": "If the senior citizen's family is already a PM-JAY beneficiary family, an ADDITIONAL top-up of up to Rs. 5,00,000/year is provided exclusively for the 70+ member(s), separate from and not shared with the family's existing PM-JAY cover.",
+        "user_friendly_description": "If your family already has PM-JAY, the 70+ family member gets an EXTRA Rs 5 lakh just for themselves, on top of the family's existing cover.",
+        "source_id": "SRC002",
+        "verification_status": "VERIFIED"
+      },
+      {
+        "benefit_id": "B_VAY_003",
+        "description": "Coverage for approximately 1,900-2,000+ medical/surgical procedures across roughly 27 specialities per government press statements (exact figure varies slightly by source/date).",
+        "user_friendly_description": "Covers a very wide range of treatments and surgeries across most medical specialities.",
+        "source_id": "SRC002",
+        "verification_status": "NEEDS_VERIFICATION"
+      }
+    ],
+    "CGHS": [
+      {
+        "benefit_id": "B_CGHS_001",
+        "description": "OPD treatment and medicine issue at CGHS Wellness Centres.",
+        "user_friendly_description": "Free outpatient doctor visits and medicines at CGHS centres.",
+        "source_id": "SRC004",
+        "verification_status": "VERIFIED"
+      },
+      {
+        "benefit_id": "B_CGHS_002",
+        "description": "Specialist consultation at government hospitals, and at CGHS empanelled hospitals after referral.",
+        "user_friendly_description": "Access to specialist doctors at government hospitals, with referrals to empanelled private hospitals when needed.",
+        "source_id": "SRC004",
+        "verification_status": "VERIFIED"
+      },
+      {
+        "benefit_id": "B_CGHS_003",
+        "description": "Hospitalization (indoor treatment) at government and CGHS-empanelled private hospitals.",
+        "user_friendly_description": "Hospital admission and treatment at government or CGHS-approved private hospitals.",
+        "source_id": "SRC004",
+        "verification_status": "VERIFIED"
+      },
+      {
+        "benefit_id": "B_CGHS_004",
+        "description": "Investigations/diagnostics at government and empanelled diagnostic centres.",
+        "user_friendly_description": "Lab tests and scans at government or CGHS-approved diagnostic centres.",
+        "source_id": "SRC004",
+        "verification_status": "VERIFIED"
+      },
+      {
+        "benefit_id": "B_CGHS_005",
+        "description": "Reimbursement for hearing aids, artificial limbs, and similar appliances/implants as per CGHS ceiling rates and guidelines.",
+        "user_friendly_description": "Money back for things like hearing aids and artificial limbs, up to set limits.",
+        "source_id": "SRC004",
+        "verification_status": "VERIFIED"
+      },
+      {
+        "benefit_id": "B_CGHS_006",
+        "description": "Coverage across Allopathic, Homoeopathic, and Indian systems of medicine (Ayurveda, Unani, Siddha, Yoga/AYUSH).",
+        "user_friendly_description": "You can choose modern medicine or traditional Indian systems like Ayurveda, Unani, Siddha, or Yoga-based treatment.",
+        "source_id": "SRC004",
+        "verification_status": "VERIFIED"
+      },
+      {
+        "benefit_id": "B_CGHS_007",
+        "description": "In emergencies, beneficiaries may go to any hospital (empanelled or not) and later claim reimbursement for treatment at private unrecognized hospitals under emergency conditions.",
+        "user_friendly_description": "In a real emergency, you can go to the nearest hospital even if it isn't on the approved list, and claim the cost back later.",
+        "source_id": "SRC004",
+        "verification_status": "VERIFIED"
+      }
+    ],
+    "ESIC": [
+      {
+        "benefit_id": "B_ESIC_001",
+        "description": "Medical care for the insured person and dependents at ESIC hospitals/dispensaries.",
+        "user_friendly_description": "Free or subsidised medical treatment for you and your dependents at ESIC facilities.",
+        "source_id": "SRC005",
+        "verification_status": "VERIFIED"
+      },
+      {
+        "benefit_id": "B_ESIC_002",
+        "description": "Statutory cash benefits: sickness benefit, maternity benefit, disablement benefit, and dependents' benefit (in case of employment-related death), funded through employer-employee contributions (0.75% employee / 3.25% employer of gross wages).",
+        "user_friendly_description": "Cash support if you're sick, having a baby, injured at work, or in case of an employment-related death in the family - funded by small automatic deductions from pay plus your employer's contribution.",
+        "source_id": "SRC005",
+        "verification_status": "NEEDS_VERIFICATION"
+      }
+    ],
+    "CMCHIS": [
+      {
+        "benefit_id": "B_CMCHIS_001",
+        "description": "Cashless family-floater health insurance cover of Rs. 5,00,000 per family per year at empanelled government and private hospitals in Tamil Nadu, for the current 2022-2027 implementation cycle.",
+        "user_friendly_description": "Up to Rs 5 lakh a year in free hospital treatment for your family at approved Tamil Nadu hospitals.",
+        "source_id": "SRC006",
+        "verification_status": "NEEDS_VERIFICATION"
+      },
+      {
+        "benefit_id": "B_CMCHIS_002",
+        "description": "Covers surgeries, follow-up treatments, and diagnostic procedures - reported as approximately 1,090 procedures, 8 follow-up procedures, and 52 diagnostic procedures as of a January 2022 reference point.",
+        "user_friendly_description": "Covers a wide range of surgeries, follow-up care, and diagnostic tests - though the exact numbers may have changed since 2022.",
+        "source_id": "SRC006",
+        "verification_status": "NEEDS_VERIFICATION"
+      },
+      {
+        "benefit_id": "B_CMCHIS_003",
+        "description": "A proposed enhancement of coverage to Rs. 25,00,000 per family has been publicly announced; implementation status (in force vs. pending official guidelines) is unconfirmed.",
+        "user_friendly_description": "There's been a government announcement about raising the cover to Rs 25 lakh, but it's unclear if this is actually active yet - do not assume this higher amount without checking.",
+        "source_id": "SRC006",
+        "verification_status": "NEEDS_VERIFICATION"
+      }
+    ]
+  }
+}

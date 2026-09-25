@@ -1,0 +1,37 @@
+{
+  "total_schemes": 5,
+  "scheme_ids": [
+    "PMJAY",
+    "VAYVANDANA",
+    "CGHS",
+    "ESIC",
+    "CMCHIS"
+  ],
+  "index": {
+    "PMJAY": {
+      "scheme_name": "Ayushman Bharat - Pradhan Mantri Jan Arogya Yojana",
+      "level": "central",
+      "status": "ACTIVE"
+    },
+    "VAYVANDANA": {
+      "scheme_name": "AB PM-JAY expansion for senior citizens (Ayushman Vay Vandana Yojana)",
+      "level": "central",
+      "status": "ACTIVE"
+    },
+    "CGHS": {
+      "scheme_name": "Central Government Health Scheme",
+      "level": "central",
+      "status": "ACTIVE_BUT_DATA_PARTIALLY_OUTDATED"
+    },
+    "ESIC": {
+      "scheme_name": "Employees' State Insurance Scheme",
+      "level": "central",
+      "status": "ACTIVE"
+    },
+    "CMCHIS": {
+      "scheme_name": "Chief Minister's Comprehensive Health Insurance Scheme",
+      "level": "state",
+      "status": "ACTIVE_BUT_KEY_FIGURES_UNVERIFIED"
+    }
+  }
+}

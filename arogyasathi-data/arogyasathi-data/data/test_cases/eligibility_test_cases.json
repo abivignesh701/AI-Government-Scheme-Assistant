@@ -1,0 +1,220 @@
+{
+  "test_cases": [
+    {
+      "test_id": "TC001",
+      "description": "Clearly matching user for PM-JAY via urban occupation category (pre-screen only, not a guaranteed DB match).",
+      "user_profile": {
+        "state": "Uttar Pradesh",
+        "occupation": "street_vendor_cobbler_hawker",
+        "residence_type": "urban",
+        "annual_family_income": 60000,
+        "age": 35,
+        "existing_govt_health_coverage": "none"
+      },
+      "expected_results": [
+        {
+          "scheme_id": "PMJAY",
+          "rule_id": "R_PMJAY_002",
+          "expected_outcome": "PASS_PRESCREEN_ONLY"
+        },
+        {
+          "scheme_id": "PMJAY",
+          "rule_id": "R_PMJAY_001",
+          "expected_outcome": "UNKNOWN_REQUIRES_DATABASE_CHECK"
+        }
+      ],
+      "reason": "Occupation matches an urban PM-JAY inclusion category (R_PMJAY_002), but final PASS requires the SECC 2011 database match (R_PMJAY_001), which cannot be computed from profile fields alone."
+    },
+    {
+      "test_id": "TC002",
+      "description": "Clearly non-matching user for Vay Vandana due to age.",
+      "user_profile": {
+        "state": "Karnataka",
+        "age": 45,
+        "aadhaar_ekyc_completed": true
+      },
+      "expected_results": [
+        {
+          "scheme_id": "VAYVANDANA",
+          "rule_id": "R_VAY_001",
+          "expected_outcome": "FAIL"
+        }
+      ],
+      "reason": "Age 45 does not meet the R_VAY_001 requirement of >=70 years."
+    },
+    {
+      "test_id": "TC003",
+      "description": "Missing income for a scheme that requires an income check (CMCHIS).",
+      "user_profile": {
+        "state": "Tamil Nadu",
+        "name_on_family_ration_card": true,
+        "annual_family_income": null
+      },
+      "expected_results": [
+        {
+          "scheme_id": "CMCHIS",
+          "rule_id": "R_CMCHIS_003",
+          "expected_outcome": "UNKNOWN"
+        }
+      ],
+      "reason": "R_CMCHIS_003 unknown_behavior is BLOCK_DETERMINISTIC_RESULT_SHOW_NEEDS_VERIFICATION; missing income compounds with the rule's inherent unverified threshold, so result must be UNKNOWN/NEEDS_VERIFICATION, never a computed PASS or FAIL."
+    },
+    {
+      "test_id": "TC004",
+      "description": "Unknown existing coverage for Vay Vandana (should not default to 'no').",
+      "user_profile": {
+        "state": "Rajasthan",
+        "age": 72,
+        "aadhaar_ekyc_completed": true,
+        "existing_other_govt_health_scheme": "unknown"
+      },
+      "expected_results": [
+        {
+          "scheme_id": "VAYVANDANA",
+          "rule_id": "R_VAY_003",
+          "expected_outcome": "UNKNOWN_PRESENT_CHOICE_AT_ENROLMENT"
+        }
+      ],
+      "reason": "unknown_behavior for R_VAY_003 explicitly forbids assuming 'no existing coverage'; the system must ask/flag rather than silently proceeding as if no conflicting scheme exists."
+    },
+    {
+      "test_id": "TC005",
+      "description": "Multiple matching schemes: a 72-year-old ESI-covered factory worker in Chennai.",
+      "user_profile": {
+        "state": "Tamil Nadu",
+        "age": 72,
+        "aadhaar_ekyc_completed": true,
+        "monthly_gross_wage": 18000,
+        "establishment_employee_count": 15,
+        "employment_type": "payroll_employee",
+        "disability_status": false,
+        "existing_private_insurance_or_esi": "ESI"
+      },
+      "expected_results": [
+        {
+          "scheme_id": "VAYVANDANA",
+          "expected_outcome": "LIKELY_PASS",
+          "note": "Age 70+ met; ESI coverage explicitly does not block Vay Vandana per R_VAY_004."
+        },
+        {
+          "scheme_id": "ESIC",
+          "expected_outcome": "LIKELY_PASS",
+          "note": "Wage within ceiling, establishment size sufficient, payroll employee."
+        }
+      ],
+      "reason": "Demonstrates that a person can be flagged as a likely match for more than one scheme simultaneously; the engine should return a ranked/combined list, not force a single result."
+    },
+    {
+      "test_id": "TC006",
+      "description": "No matching scheme: a 40-year-old self-employed person in Delhi earning well above all thresholds, not in the PM-JAY database, no CGHS category.",
+      "user_profile": {
+        "state": "Delhi",
+        "age": 40,
+        "occupation": "self_employed_shop_owner",
+        "annual_family_income": 1500000,
+        "employment_type": "self_employed_or_gig_worker_not_on_payroll"
+      },
+      "expected_results": [
+        {
+          "scheme_id": "PMJAY",
+          "expected_outcome": "LIKELY_FAIL_PRESCREEN"
+        },
+        {
+          "scheme_id": "ESIC",
+          "rule_id": "R_ESIC_004",
+          "expected_outcome": "FAIL"
+        },
+        {
+          "scheme_id": "CGHS",
+          "rule_id": "R_CGHS_001",
+          "expected_outcome": "LIKELY_FAIL"
+        },
+        {
+          "scheme_id": "CMCHIS",
+          "rule_id": "R_CMCHIS_001",
+          "expected_outcome": "FAIL",
+          "note": "Not a Tamil Nadu resident."
+        }
+      ],
+      "reason": "Demonstrates a realistic 'no scheme matched' outcome across all 5 researched schemes for this profile; note PM-JAY's true result still technically needs official DB confirmation even though prescreen strongly suggests non-inclusion."
+    },
+    {
+      "test_id": "TC007",
+      "description": "Boundary value test: ESI wage exactly at the Rs 21,000 ceiling.",
+      "user_profile": {
+        "monthly_gross_wage": 21000,
+        "establishment_employee_count": 12,
+        "employment_type": "payroll_employee",
+        "disability_status": false
+      },
+      "expected_results": [
+        {
+          "scheme_id": "ESIC",
+          "rule_id": "R_ESIC_001",
+          "expected_outcome": "PASS",
+          "note": "Operator is less_than_or_equal, so exactly 21000 should PASS."
+        }
+      ],
+      "reason": "Tests the inclusive boundary specified by the 'less_than_or_equal' operator in R_ESIC_001."
+    },
+    {
+      "test_id": "TC008",
+      "description": "Missing state for a state-specific scheme (CMCHIS).",
+      "user_profile": {
+        "state": null,
+        "annual_family_income": 90000,
+        "name_on_family_ration_card": true
+      },
+      "expected_results": [
+        {
+          "scheme_id": "CMCHIS",
+          "rule_id": "R_CMCHIS_001",
+          "expected_outcome": "UNKNOWN"
+        }
+      ],
+      "reason": "unknown_behavior for R_CMCHIS_001 is TREAT_AS_UNKNOWN; the engine must not assume the user is NOT a Tamil Nadu resident just because state was left blank."
+    },
+    {
+      "test_id": "TC009",
+      "description": "Missing occupation for PM-JAY urban-category pre-screen.",
+      "user_profile": {
+        "state": "Bihar",
+        "residence_type": "urban",
+        "occupation": null,
+        "annual_family_income": 50000
+      },
+      "expected_results": [
+        {
+          "scheme_id": "PMJAY",
+          "rule_id": "R_PMJAY_002",
+          "expected_outcome": "UNKNOWN"
+        }
+      ],
+      "reason": "unknown_behavior for R_PMJAY_002 is TREAT_AS_UNKNOWN; missing occupation should not be treated as a fail on this pre-screen rule."
+    },
+    {
+      "test_id": "TC010",
+      "description": "Beneficiary-database verification required scenario for PM-JAY.",
+      "user_profile": {
+        "state": "Madhya Pradesh",
+        "residence_type": "rural",
+        "social_category": "ST",
+        "annual_family_income": 40000
+      },
+      "expected_results": [
+        {
+          "scheme_id": "PMJAY",
+          "rule_id": "R_PMJAY_003",
+          "expected_outcome": "PASS_PRESCREEN_ONLY",
+          "note": "ST household matches D5 rural deprivation criterion."
+        },
+        {
+          "scheme_id": "PMJAY",
+          "rule_id": "R_PMJAY_001",
+          "expected_outcome": "REQUIRES_EXTERNAL_DATABASE_VERIFICATION"
+        }
+      ],
+      "reason": "Even a strong pre-screen match (SC/ST household under D5) must be presented to the user as 'likely eligible, please verify at beneficiary.nha.gov.in' rather than a final confirmed PASS, per the database_match design of R_PMJAY_001."
+    }
+  ]
+}

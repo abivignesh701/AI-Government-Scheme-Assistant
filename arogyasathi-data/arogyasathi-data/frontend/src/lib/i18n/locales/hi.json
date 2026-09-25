@@ -1,0 +1,48 @@
+{
+  "nav.home": "होम",
+  "nav.schemes": "योजनाएं",
+  "nav.eligibility": "पात्रता",
+  "nav.language": "भाषा",
+  "nav.settings": "सेटिंग्स",
+  
+  "home.title": "आरोग्यसाथी",
+  "home.subtitle": "सरकारी स्वास्थ्य लाभ, आपकी भाषा में समझाए गए।",
+  "home.cta.check": "पात्रता जांचें",
+  "home.cta.explore": "योजनाएं खोजें",
+
+  "eligibility.status.MATCH": "मिलान",
+  "eligibility.status.NEEDS_VERIFICATION": "सत्यापन की आवश्यकता",
+  "eligibility.status.NOT_MATCHED": "मेल नहीं खाता",
+  "eligibility.status.UNKNOWN": "अज्ञात",
+
+  "eligibility.reason.INCOME_WITHIN_LIMIT": "आपके परिवार की वार्षिक आय ₹{limit} सीमा के भीतर है।",
+  "eligibility.reason.INCOME_WITHIN_LIMIT.caregiver": "परिवार की वार्षिक आय ₹{limit} सीमा के भीतर है।",
+  "eligibility.reason.INCOME_EXCEEDS_LIMIT": "आपके परिवार की वार्षिक आय ₹{limit} सीमा से अधिक है।",
+  "eligibility.reason.INCOME_EXCEEDS_LIMIT.caregiver": "परिवार की वार्षिक आय ₹{limit} सीमा से अधिक है।",
+  "eligibility.reason.STATE_MATCH": "यह योजना {state} के निवासियों पर लागू होती है।",
+  "eligibility.reason.STATE_MATCH.caregiver": "यह योजना {state} के निवासियों पर लागू होती है।",
+  "eligibility.reason.STATE_MISMATCH": "यह योजना {state} में लागू नहीं है।",
+  "eligibility.reason.STATE_MISMATCH.caregiver": "यह योजना {state} में लागू नहीं है।",
+
+  "action.prepare_documents": "दस्तावेज़ तैयार करें",
+  "action.verify_officially": "आधिकारिक रूप से सत्यापित करें",
+  "action.enroll": "आधिकारिक चैनल के माध्यम से नामांकन करें",
+  "action.review_denial": "समीक्षा करें कि आपका मिलान क्यों नहीं हुआ",
+  "action.update_profile": "प्रोफ़ाइल अपडेट करें",
+  
+  "document.requirement.REQUIRED": "आवश्यक",
+  "document.requirement.CONDITIONALLY_REQUIRED": "सशर्त",
+  "document.requirement.MAY_BE_REQUESTED": "मांगा जा सकता है",
+
+  "guidance.title": "आवेदन मार्गदर्शन",
+  "guidance.print": "प्रिंट करें",
+  "guidance.next_steps": "अगले कदम और मार्गदर्शन",
+  
+  "assistant.ask": "प्रश्न पूछें",
+  "assistant.hide": "सहायक छुपाएं",
+  "assistant.title": "मार्गदर्शन सहायक",
+  
+  "settings.simple_language": "सरल भाषा मोड",
+  "settings.large_text": "बड़ा पाठ",
+  "settings.high_contrast": "उच्च कंट्रास्ट"
+}

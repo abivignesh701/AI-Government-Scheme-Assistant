@@ -1,0 +1,51 @@
+{
+  "app_name": "आरोग्यसाथी",
+  "auth": {
+    "login": "लॉग इन करें",
+    "signup": "साइन अप करें",
+    "email": "ईमेल पता",
+    "password": "पासवर्ड",
+    "submit": "आगे बढ़ें",
+    "errors": {
+      "invalid_credentials": "अमान्य ईमेल या पासवर्ड",
+      "weak_password": "पासवर्ड कम से कम 8 अक्षरों का होना चाहिए"
+    }
+  },
+  "dashboard": {
+    "title": "मेरा डैशबोर्ड",
+    "profile": "नागरिक प्रोफ़ाइल",
+    "assistant": "सहायक से पूछें",
+    "schemes": "योजनाएं खोजें",
+    "language": "भाषा"
+  },
+  "profile": {
+    "title": "आपकी जानकारी",
+    "age": "आयु",
+    "income": "वार्षिक पारिवारिक आय",
+    "caste": "जाति श्रेणी",
+    "save": "प्रोफ़ाइल सहेजें"
+  },
+  "eligibility": {
+    "title": "योजना पात्रता",
+    "status": {
+      "MATCH": "पात्र",
+      "NEEDS_MORE_INFORMATION": "अधिक जानकारी चाहिए",
+      "NOT_MATCHED": "अपात्र"
+    },
+    "reasons": {
+      "AGE_BELOW_MINIMUM": "आपकी आयु कम से कम {{minimum_age}} वर्ष होनी चाहिए।",
+      "INCOME_ABOVE_MAXIMUM": "आपकी पारिवारिक आय {{maximum_income}} से कम होनी चाहिए।"
+    }
+  },
+  "assistant": {
+    "title": "आरोग्यसाथी सहायक",
+    "placeholder": "योजनाओं, पात्रता या दस्तावेज़ों के बारे में पूछें...",
+    "send": "भेजें",
+    "clear": "चैट साफ़ करें",
+    "welcome": "नमस्ते! मैं आरोग्यसाथी हूं, सरकारी स्वास्थ्य योजनाओं के लिए आपका AI सहायक। आप क्या जानना चाहेंगे?"
+  },
+  "guidance": {
+    "apply_now": "अभी आवेदन करें",
+    "documents_required": "आवश्यक दस्तावेज़"
+  }
+}

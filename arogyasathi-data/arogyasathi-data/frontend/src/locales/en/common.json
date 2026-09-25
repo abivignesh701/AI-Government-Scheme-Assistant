@@ -1,0 +1,51 @@
+{
+  "app_name": "ArogyaSathi",
+  "auth": {
+    "login": "Log In",
+    "signup": "Sign Up",
+    "email": "Email Address",
+    "password": "Password",
+    "submit": "Continue",
+    "errors": {
+      "invalid_credentials": "Invalid email or password",
+      "weak_password": "Password must be at least 8 characters"
+    }
+  },
+  "dashboard": {
+    "title": "My Dashboard",
+    "profile": "Citizen Profile",
+    "assistant": "Ask Assistant",
+    "schemes": "Explore Schemes",
+    "language": "Language"
+  },
+  "profile": {
+    "title": "Your Information",
+    "age": "Age",
+    "income": "Annual Family Income",
+    "caste": "Caste Category",
+    "save": "Save Profile"
+  },
+  "eligibility": {
+    "title": "Scheme Eligibility",
+    "status": {
+      "MATCH": "Eligible",
+      "NEEDS_MORE_INFORMATION": "Needs More Info",
+      "NOT_MATCHED": "Not Eligible"
+    },
+    "reasons": {
+      "AGE_BELOW_MINIMUM": "You must be at least {{minimum_age}} years old.",
+      "INCOME_ABOVE_MAXIMUM": "Your family income must be below {{maximum_income}}."
+    }
+  },
+  "assistant": {
+    "title": "ArogyaSathi Assistant",
+    "placeholder": "Ask about schemes, eligibility, or documents...",
+    "send": "Send",
+    "clear": "Clear Chat",
+    "welcome": "Hello! I am ArogyaSathi, your AI assistant for government health schemes. What would you like to know?"
+  },
+  "guidance": {
+    "apply_now": "Apply Now",
+    "documents_required": "Required Documents"
+  }
+}

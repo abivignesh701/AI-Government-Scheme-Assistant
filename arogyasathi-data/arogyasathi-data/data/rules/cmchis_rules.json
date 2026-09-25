@@ -1,0 +1,76 @@
+{
+  "scheme_id": "CMCHIS",
+  "rules": [
+    {
+      "rule_id": "R_CMCHIS_001",
+      "field": "state_of_residence",
+      "operator": "equals",
+      "value": "Tamil Nadu",
+      "unit": null,
+      "required": true,
+      "description": "Applicant must be a resident of Tamil Nadu.",
+      "user_friendly_explanation": "You need to live in Tamil Nadu to apply for this scheme.",
+      "pass_message": "Tamil Nadu residency condition met.",
+      "fail_message": "This is a Tamil Nadu state scheme - residents of other states are not eligible.",
+      "unknown_message": "State of residence was not provided.",
+      "source_id": "SRC006",
+      "verification_status": "VERIFIED",
+      "unknown_behavior": "TREAT_AS_UNKNOWN"
+    },
+    {
+      "rule_id": "R_CMCHIS_002",
+      "field": "name_on_family_ration_card",
+      "operator": "equals",
+      "value": true,
+      "unit": null,
+      "required": true,
+      "description": "The applicant's name must be present on the family/ration card used for household verification.",
+      "user_friendly_explanation": "Your name needs to be listed on your family's ration card.",
+      "pass_message": "Name is present on the family/ration card.",
+      "fail_message": "Name is not present on a family/ration card - this is a required document/condition for CMCHIS.",
+      "unknown_message": "We don't know if the applicant's name is on a family/ration card.",
+      "source_id": "SRC006",
+      "verification_status": "VERIFIED",
+      "unknown_behavior": "TREAT_AS_UNKNOWN"
+    },
+    {
+      "rule_id": "R_CMCHIS_003",
+      "field": "annual_family_income",
+      "operator": "less_than_or_equal",
+      "value": null,
+      "unit": "INR_per_year",
+      "required": true,
+      "description": "CONFLICTING FIGURES FOUND ACROSS SOURCES: household annual income must be below a stated ceiling, reported as EITHER approximately Rs. 72,000/year OR approximately Rs. 1,20,000/year depending on the (non-primary) source consulted. NEITHER figure could be confirmed against an official Tamil Nadu Government Order or the scheme's own portal in this research pass. The numeric 'value' field is deliberately left as null so a rule engine does NOT silently apply an unverified threshold.",
+      "user_friendly_explanation": "There IS a family income limit for this scheme, but our sources disagree on the exact amount (we've seen both about Rs 72,000/year and about Rs 1,20,000/year quoted). Please check the current limit on the official Tamil Nadu health insurance scheme portal or with the Village Administrative Officer before assuming you do or don't qualify.",
+      "pass_message": "NOT COMPUTABLE - the income ceiling itself is unverified. Do not report PASS/FAIL for this rule until the correct figure is confirmed.",
+      "fail_message": "NOT COMPUTABLE - the income ceiling itself is unverified.",
+      "unknown_message": "This scheme has an income ceiling, but our data on the exact rupee amount is unverified/conflicting. Please check the official portal.",
+      "source_id": "SRC006",
+      "verification_status": "NEEDS_VERIFICATION",
+      "unknown_behavior": "BLOCK_DETERMINISTIC_RESULT_SHOW_NEEDS_VERIFICATION",
+      "verification_notes": "See conflicts.json CONFLICT_001 for both candidate figures and their (non-primary) sources."
+    },
+    {
+      "rule_id": "R_CMCHIS_004",
+      "field": "special_beneficiary_category",
+      "operator": "in",
+      "value": [
+        "transgender_person",
+        "differently_abled_person",
+        "accredited_journalist",
+        "sri_lankan_tamil_refugee_with_citizenship_proof",
+        "orphaned_or_rescued_child"
+      ],
+      "unit": null,
+      "required": false,
+      "description": "Certain notified special categories are reported to be covered under CMCHIS-linked schemes, in some cases without the standard income ceiling (e.g., differently-abled persons per SRC007). This could not be fully cross-verified against a single authoritative Tamil Nadu government source and may represent a distinct sub-scheme rather than a blanket exception within core CMCHIS.",
+      "user_friendly_explanation": "If you're a transgender person, a person with disability, an accredited journalist, a Sri Lankan Tamil refugee, or an orphaned/rescued child, there may be a special path into this scheme (sometimes without the income limit) - but this needs to be checked directly with the Tamil Nadu scheme office since our sources aren't fully consistent on this.",
+      "pass_message": "Special category noted - please verify the specific sub-scheme and its terms directly with the official CMCHIS office.",
+      "fail_message": "No special category reported - standard eligibility path (residency, ration card, income ceiling) applies.",
+      "unknown_message": "Special category status was not provided.",
+      "source_id": "SRC007",
+      "verification_status": "NEEDS_VERIFICATION",
+      "unknown_behavior": "TREAT_AS_UNKNOWN"
+    }
+  ]
+}

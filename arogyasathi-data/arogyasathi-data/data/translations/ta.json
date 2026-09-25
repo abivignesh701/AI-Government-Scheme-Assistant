@@ -1,0 +1,44 @@
+{
+  "language": "Tamil",
+  "language_code": "ta",
+  "terms": {
+    "income": "வருமானம்",
+    "occupation": "தொழில்",
+    "family": "குடும்பம்",
+    "age": "வயது",
+    "state": "மாநிலம்",
+    "district": "மாவட்டம்",
+    "health_insurance": "சுகாதார காப்பீடு",
+    "government_coverage": "அரசு சுகாதார பாதுகாப்பு",
+    "eligible": "தகுதியானவர்",
+    "needs_verification": "சரிபார்ப்பு தேவை",
+    "not_eligible": "தகுதியற்றவர்",
+    "benefits": "நன்மைகள்",
+    "documents": "ஆவணங்கள்",
+    "application": "விண்ணப்பம்",
+    "official_source": "அதிகாரப்பூர்வ ஆதாரம்",
+    "unknown": "தெரியவில்லை",
+    "yes": "ஆம்",
+    "no": "இல்லை",
+    "i_dont_know": "எனக்குத் தெரியாது"
+  },
+  "explanations": {
+    "annual_family_income": "உங்கள் முழு குடும்பமும் ஒரு ஆண்டில் சம்பாதிக்கும் மொத்த தொகை, செலவுகளுக்கு முன்.",
+    "beneficiary_database_status": "PM-JAY போன்ற திட்டத்திற்கு தகுதியான குடும்பங்களின் அரசு பட்டியலில் உங்கள் குடும்பம் ஏற்கனவே உள்ளதா என்பது.",
+    "existing_govt_health_coverage": "CGHS, ESIC அல்லது மாநில சுகாதார திட்டம் போன்ற தற்போது உங்களிடம் அல்லது உங்கள் குடும்பத்திடம் உள்ள எந்த அரசு சுகாதார திட்டமும்.",
+    "needs_verification": "இந்த விவரத்தை அதிகாரப்பூர்வ அரசு ஆதாரத்திலிருந்து உறுதிப்படுத்த முடியவில்லை. நம்புவதற்கு முன் அதிகாரப்பூர்வ திட்ட இணையதளம் அல்லது அலுவலகத்தை சரிபார்க்கவும்.",
+    "database_match": "இந்த திட்டம் நேரடியாக ஒரு அரசு தரவுத்தளத்தை சரிபார்க்கிறது - இது நீங்களே கணக்கிடக்கூடிய ஒரு சூத்திரத்தை அடிப்படையாகக் கொண்டது அல்ல."
+  },
+  "scheme_names_do_not_translate": [
+    "Ayushman Bharat",
+    "Pradhan Mantri Jan Arogya Yojana",
+    "PM-JAY",
+    "Ayushman Vay Vandana Yojana",
+    "Central Government Health Scheme",
+    "CGHS",
+    "Employees' State Insurance Scheme",
+    "ESIC",
+    "Chief Minister's Comprehensive Health Insurance Scheme (CMCHIS) / Kalaignar Kaappittu Thittam"
+  ],
+  "translation_note": "Official scheme names are intentionally preserved (not translated) as per project instructions; only the descriptive UI terminology above is translated."
+}

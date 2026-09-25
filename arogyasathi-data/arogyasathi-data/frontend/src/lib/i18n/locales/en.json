@@ -1,0 +1,48 @@
+{
+  "nav.home": "Home",
+  "nav.schemes": "Schemes",
+  "nav.eligibility": "Eligibility",
+  "nav.language": "Language",
+  "nav.settings": "Settings",
+  
+  "home.title": "ArogyaSathi",
+  "home.subtitle": "Government health benefits, explained in your language.",
+  "home.cta.check": "Check Eligibility",
+  "home.cta.explore": "Explore Schemes",
+
+  "eligibility.status.MATCH": "Match",
+  "eligibility.status.NEEDS_VERIFICATION": "Needs Verification",
+  "eligibility.status.NOT_MATCHED": "Not Matched",
+  "eligibility.status.UNKNOWN": "Unknown",
+
+  "eligibility.reason.INCOME_WITHIN_LIMIT": "Your family's yearly income is within the ₹{limit} limit.",
+  "eligibility.reason.INCOME_WITHIN_LIMIT.caregiver": "The family's yearly income is within the ₹{limit} limit.",
+  "eligibility.reason.INCOME_EXCEEDS_LIMIT": "Your family's yearly income exceeds the ₹{limit} limit.",
+  "eligibility.reason.INCOME_EXCEEDS_LIMIT.caregiver": "The family's yearly income exceeds the ₹{limit} limit.",
+  "eligibility.reason.STATE_MATCH": "This scheme applies to residents of {state}.",
+  "eligibility.reason.STATE_MATCH.caregiver": "This scheme applies to residents of {state}.",
+  "eligibility.reason.STATE_MISMATCH": "This scheme is not applicable in {state}.",
+  "eligibility.reason.STATE_MISMATCH.caregiver": "This scheme is not applicable in {state}.",
+
+  "action.prepare_documents": "Prepare Documents",
+  "action.verify_officially": "Verify Officially",
+  "action.enroll": "Enroll via Official Channel",
+  "action.review_denial": "Review Why You Did Not Match",
+  "action.update_profile": "Update Profile",
+  
+  "document.requirement.REQUIRED": "Required",
+  "document.requirement.CONDITIONALLY_REQUIRED": "Conditional",
+  "document.requirement.MAY_BE_REQUESTED": "May Be Requested",
+
+  "guidance.title": "Application Guidance",
+  "guidance.print": "Print",
+  "guidance.next_steps": "Next Steps & Guidance",
+  
+  "assistant.ask": "Ask Question",
+  "assistant.hide": "Hide Assistant",
+  "assistant.title": "Guidance Assistant",
+  
+  "settings.simple_language": "Simple Language Mode",
+  "settings.large_text": "Large Text",
+  "settings.high_contrast": "High Contrast"
+}

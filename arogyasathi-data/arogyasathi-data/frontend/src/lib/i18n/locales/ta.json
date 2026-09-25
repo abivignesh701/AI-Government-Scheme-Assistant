@@ -1,0 +1,48 @@
+{
+  "nav.home": "முகப்பு",
+  "nav.schemes": "திட்டங்கள்",
+  "nav.eligibility": "தகுதி",
+  "nav.language": "மொழி",
+  "nav.settings": "அமைப்புகள்",
+  
+  "home.title": "ஆரோக்கியசாதி",
+  "home.subtitle": "அரசு சுகாதார சலுகைகள், உங்கள் மொழியில் விளக்கப்பட்டுள்ளன.",
+  "home.cta.check": "தகுதியை சரிபார்க்கவும்",
+  "home.cta.explore": "திட்டங்களை ஆராயவும்",
+
+  "eligibility.status.MATCH": "பொருந்துகிறது",
+  "eligibility.status.NEEDS_VERIFICATION": "சரிபார்ப்பு தேவை",
+  "eligibility.status.NOT_MATCHED": "பொருந்தவில்லை",
+  "eligibility.status.UNKNOWN": "தெரியவில்லை",
+
+  "eligibility.reason.INCOME_WITHIN_LIMIT": "உங்கள் குடும்பத்தின் ஆண்டு வருமானம் ₹{limit} வரம்பிற்குள் உள்ளது.",
+  "eligibility.reason.INCOME_WITHIN_LIMIT.caregiver": "குடும்பத்தின் ஆண்டு வருமானம் ₹{limit} வரம்பிற்குள் உள்ளது.",
+  "eligibility.reason.INCOME_EXCEEDS_LIMIT": "உங்கள் குடும்பத்தின் ஆண்டு வருமானம் ₹{limit} வரம்பை மீறுகிறது.",
+  "eligibility.reason.INCOME_EXCEEDS_LIMIT.caregiver": "குடும்பத்தின் ஆண்டு வருமானம் ₹{limit} வரம்பை மீறுகிறது.",
+  "eligibility.reason.STATE_MATCH": "இந்தத் திட்டம் {state} குடியிருப்பாளர்களுக்கு பொருந்தும்.",
+  "eligibility.reason.STATE_MATCH.caregiver": "இந்தத் திட்டம் {state} குடியிருப்பாளர்களுக்கு பொருந்தும்.",
+  "eligibility.reason.STATE_MISMATCH": "இந்தத் திட்டம் {state} மாநிலத்தில் பொருந்தாது.",
+  "eligibility.reason.STATE_MISMATCH.caregiver": "இந்தத் திட்டம் {state} மாநிலத்தில் பொருந்தாது.",
+
+  "action.prepare_documents": "ஆவணங்களை தயார் செய்யவும்",
+  "action.verify_officially": "அதிகாரப்பூர்வமாக சரிபார்க்கவும்",
+  "action.enroll": "அதிகாரப்பூர்வ சேனல் மூலம் பதிவு செய்யவும்",
+  "action.review_denial": "ஏன் பொருந்தவில்லை என மதிப்பாய்வு செய்யவும்",
+  "action.update_profile": "சுயவிவரத்தை புதுப்பிக்கவும்",
+  
+  "document.requirement.REQUIRED": "கட்டாயம்",
+  "document.requirement.CONDITIONALLY_REQUIRED": "நிபந்தனை",
+  "document.requirement.MAY_BE_REQUESTED": "கேட்கப்படலாம்",
+
+  "guidance.title": "விண்ணப்ப வழிகாட்டுதல்",
+  "guidance.print": "அச்சிடு",
+  "guidance.next_steps": "அடுத்த படிகள் & வழிகாட்டுதல்",
+  
+  "assistant.ask": "கேள்வி கேள்",
+  "assistant.hide": "உதவியாளரை மறை",
+  "assistant.title": "வழிகாட்டுதல் உதவியாளர்",
+  
+  "settings.simple_language": "எளிய மொழி முறை",
+  "settings.large_text": "பெரிய உரை",
+  "settings.high_contrast": "உயர் மாறுபாடு"
+}

@@ -1,0 +1,71 @@
+{
+  "scheme_id": "ESIC",
+  "rules": [
+    {
+      "rule_id": "R_ESIC_001",
+      "field": "monthly_gross_wage",
+      "operator": "less_than_or_equal",
+      "value": 21000,
+      "unit": "INR_per_month",
+      "required": true,
+      "description": "Employee's gross monthly wages must not exceed Rs. 21,000/month for standard ESI coverage eligibility (see R_ESIC_002 for the higher ceiling applicable to persons with disability).",
+      "user_friendly_explanation": "Your gross monthly salary (basic + dearness allowance + regular allowances, but not overtime/bonus) must be Rs 21,000 or less.",
+      "pass_message": "Wage is within the Rs 21,000/month ceiling.",
+      "fail_message": "Wage exceeds the Rs 21,000/month ceiling, so you are not newly eligible for ESI coverage (unless the Rs 25,000 disability ceiling applies, or you are continuing coverage mid-contribution-period).",
+      "unknown_message": "Monthly wage was not provided.",
+      "source_id": "SRC005",
+      "verification_status": "VERIFIED",
+      "unknown_behavior": "TREAT_AS_UNKNOWN"
+    },
+    {
+      "rule_id": "R_ESIC_002",
+      "field": "disability_status",
+      "operator": "equals",
+      "value": true,
+      "unit": null,
+      "required": false,
+      "description": "If the employee is a person with disability (PwD), the applicable wage ceiling is raised to Rs. 25,000/month instead of Rs. 21,000/month.",
+      "user_friendly_explanation": "If you have a disability, your salary limit for ESI eligibility is higher - Rs 25,000 instead of Rs 21,000.",
+      "pass_message": "Disability status noted - Rs 25,000/month ceiling applies instead of Rs 21,000.",
+      "fail_message": "Not applicable - standard Rs 21,000 ceiling applies.",
+      "unknown_message": "Disability status not provided - standard Rs 21,000 ceiling will be applied by default; please confirm if this does not apply to you.",
+      "source_id": "SRC005",
+      "verification_status": "VERIFIED",
+      "unknown_behavior": "TREAT_AS_UNKNOWN_APPLY_STANDARD_CEILING"
+    },
+    {
+      "rule_id": "R_ESIC_003",
+      "field": "establishment_employee_count",
+      "operator": "greater_than_or_equal",
+      "value": 10,
+      "unit": "employees",
+      "required": true,
+      "description": "The employee must work at a factory/establishment covered under the ESI Act, 1948, in a district notified by the Central Government, employing 10 or more persons (in most States/UTs).",
+      "user_friendly_explanation": "Your employer's workplace needs to have at least 10 employees and be registered under the ESI scheme.",
+      "pass_message": "Establishment meets the minimum employee-count threshold.",
+      "fail_message": "Establishment does not meet the minimum employee-count threshold (or is not in a notified district), so ESI coverage does not apply.",
+      "unknown_message": "Establishment employee count was not provided.",
+      "source_id": "SRC005",
+      "verification_status": "VERIFIED",
+      "unknown_behavior": "TREAT_AS_UNKNOWN",
+      "verification_notes": "A higher threshold (20 employees) is reported by secondary sources for some states (Maharashtra, Tamil Nadu, Telangana, Odisha, Chandigarh) but this state-wise variation could NOT be confirmed against an official ESIC notification in this research pass - see conflicts.json CONFLICT_004."
+    },
+    {
+      "rule_id": "R_ESIC_004",
+      "field": "employment_type",
+      "operator": "not_equals",
+      "value": "self_employed_or_gig_worker_not_on_payroll",
+      "unit": null,
+      "required": true,
+      "description": "Coverage under the ESI Act applies to employees on an employer's payroll at a covered establishment; self-employed individuals, freelancers, and gig/platform workers not on a payroll are not covered under this Act.",
+      "user_friendly_explanation": "You need to be a regular employee on your employer's payroll - self-employed people, freelancers, and gig workers without an employer relationship are not covered by this particular scheme.",
+      "pass_message": "Employment type is consistent with ESI coverage (payroll employee).",
+      "fail_message": "Self-employed/freelance/gig work without a payroll employer relationship is not covered under the ESI Act.",
+      "unknown_message": "Employment type was not provided.",
+      "source_id": "SRC009",
+      "verification_status": "NEEDS_VERIFICATION",
+      "unknown_behavior": "TREAT_AS_UNKNOWN",
+      "verification_notes": "This exclusion is consistent with the structure of the ESI Act (an employer-employee contribution scheme) but was not found verbatim on an official primary document fetched in this research pass; it is sourced only to the general ESIC portal reference (SRC009) and should be confirmed against the ESI Act, 1948 text or an ESIC circular before being enforced as a hard rule."
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "language": "Hindi",
+  "language_code": "hi",
+  "terms": {
+    "income": "आय",
+    "occupation": "व्यवसाय",
+    "family": "परिवार",
+    "age": "आयु",
+    "state": "राज्य",
+    "district": "ज़िला",
+    "health_insurance": "स्वास्थ्य बीमा",
+    "government_coverage": "सरकारी स्वास्थ्य सुरक्षा",
+    "eligible": "पात्र",
+    "needs_verification": "सत्यापन आवश्यक",
+    "not_eligible": "अपात्र",
+    "benefits": "लाभ",
+    "documents": "दस्तावेज़",
+    "application": "आवेदन",
+    "official_source": "आधिकारिक स्रोत",
+    "unknown": "अज्ञात",
+    "yes": "हाँ",
+    "no": "नहीं",
+    "i_dont_know": "मुझे नहीं पता"
+  },
+  "explanations": {
+    "annual_family_income": "आपके पूरे परिवार की एक वर्ष में होने वाली कुल कमाई, किसी भी खर्च को घटाने से पहले।",
+    "beneficiary_database_status": "क्या आपका परिवार पहले से ही PM-JAY जैसी योजना के लिए पात्र परिवारों की सरकारी सूची में शामिल है।",
+    "existing_govt_health_coverage": "कोई भी सरकारी स्वास्थ्य योजना जो आपके या आपके परिवार के पास पहले से है, जैसे CGHS, ESIC, या कोई राज्य स्वास्थ्य योजना।",
+    "needs_verification": "हम इस विवरण की पुष्टि किसी आधिकारिक सरकारी स्रोत से नहीं कर सके। भरोसा करने से पहले कृपया आधिकारिक योजना वेबसाइट या कार्यालय से जाँच करें।",
+    "database_match": "यह योजना सीधे एक सरकारी डेटाबेस की जाँच करती है - यह किसी ऐसे सूत्र पर आधारित नहीं है जिसकी गणना आप स्वयं कर सकें।"
+  },
+  "scheme_names_do_not_translate": [
+    "Ayushman Bharat",
+    "Pradhan Mantri Jan Arogya Yojana",
+    "PM-JAY",
+    "Ayushman Vay Vandana Yojana",
+    "Central Government Health Scheme",
+    "CGHS",
+    "Employees' State Insurance Scheme",
+    "ESIC",
+    "Chief Minister's Comprehensive Health Insurance Scheme",
+    "CMCHIS"
+  ],
+  "translation_note": "आधिकारिक योजना के नाम जानबूझकर अनुवाद नहीं किए गए हैं; केवल ऊपर दी गई वर्णनात्मक UI शब्दावली का अनुवाद किया गया है।"
+}

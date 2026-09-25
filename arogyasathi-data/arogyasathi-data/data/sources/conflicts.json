@@ -1,0 +1,59 @@
+{
+  "conflicts": [
+    {
+      "conflict_id": "CONFLICT_001",
+      "scheme_id": "CMCHIS",
+      "topic": "Annual household income ceiling for CMCHIS eligibility",
+      "source_a": "Secondary source describing CMCHIS eligibility (aggregator content, not myScheme itself)",
+      "claim_a": "Household annual income must be below approximately Rs. 72,000/year.",
+      "source_b": "Secondary sources (multiple aggregators) describing CMCHIS eligibility",
+      "claim_b": "Household annual income must be below approximately Rs. 1,20,000/year.",
+      "status": "NEEDS_VERIFICATION",
+      "recommended_action": "Contact the Tamil Nadu CMCHIS administering office (or locate the current Government Order / official cmchistn.gov.in page) to confirm the exact, current income ceiling before encoding it as a hard rule threshold. Until resolved, R_CMCHIS_003.value is intentionally set to null."
+    },
+    {
+      "conflict_id": "CONFLICT_002",
+      "scheme_id": "CMCHIS",
+      "topic": "Nodal department and income-ceiling exception for differently-abled persons",
+      "source_a": "SRC006 (myscheme.gov.in/schemes/cmchis)",
+      "claim_a": "CMCHIS is attributed to the Planning, Development and Special Initiatives Department, with an income ceiling applying to general economically-weaker-section families.",
+      "source_b": "SRC007 (myscheme.gov.in/schemes/cmchis-tn)",
+      "claim_b": "A similarly-named scheme is attributed to the Department for Welfare of Differently Abled Persons, covering differently-abled persons and their families with NO income ceiling.",
+      "status": "NEEDS_VERIFICATION",
+      "recommended_action": "Determine whether these are (a) the same scheme with a special-category exception, or (b) two distinct schemes that happen to share a name, by checking Tamil Nadu Government Orders or contacting the Department for Welfare of Differently Abled Persons directly."
+    },
+    {
+      "conflict_id": "CONFLICT_003",
+      "scheme_id": "CGHS",
+      "topic": "Number and list of CGHS-covered (notified) cities",
+      "source_a": "SRC004 (MoHFW Annual Report 2015-16)",
+      "claim_a": "CGHS operates in approximately 25-26 notified cities (explicit list provided, e.g., Delhi, Mumbai, Chennai, Kolkata, Bengaluru, etc., as of 2015-16).",
+      "source_b": "Secondary source (cghshospitals.com, dated content referencing '2026')",
+      "claim_b": "CGHS serves approximately 42 lakh beneficiaries across approximately 80 cities as of 2026.",
+      "status": "NEEDS_VERIFICATION",
+      "recommended_action": "The 2015-16 city list (SRC004) should be treated as a floor, not a ceiling. Before using R_CGHS_002 to reject a user's city, cross-check the CURRENT city list on cghs.mohfw.gov.in (SRC008), which could not be automatically fetched in this research pass."
+    },
+    {
+      "conflict_id": "CONFLICT_004",
+      "scheme_id": "ESIC",
+      "topic": "Minimum number of employees required for an establishment to be covered under ESI",
+      "source_a": "SRC005 (Ministry of Labour PIB document)",
+      "claim_a": "Covers employees of factories/establishments with 10 or more employees in notified districts (no state-wise variation mentioned).",
+      "source_b": "Multiple secondary/aggregator sources (not independently verified against an ESIC circular in this pass)",
+      "claim_b": "The threshold is 20 or more employees in certain states, specifically Maharashtra, Tamil Nadu, Telangana, Odisha, and Chandigarh.",
+      "status": "NEEDS_VERIFICATION",
+      "recommended_action": "Confirm the current state-wise establishment-size threshold against an official ESIC notification/circular before encoding state-specific values into R_ESIC_003."
+    },
+    {
+      "conflict_id": "CONFLICT_005",
+      "scheme_id": "VAYVANDANA",
+      "topic": "Total number of medical/surgical procedures covered under the 70+ expansion",
+      "source_a": "Ministry press statement (approx. Dec 2024, reflected in SRC002's underlying reporting window)",
+      "claim_a": "Approximately 2,000 medical procedures covered.",
+      "source_b": "Government radio/PIB-adjacent report dated 29 Nov 2024",
+      "claim_b": "1,961 procedures across 27 medical specialties.",
+      "status": "NEEDS_VERIFICATION",
+      "recommended_action": "Treat any specific procedure-count figure as approximate and time-sensitive; do not hardcode a precise number into user-facing benefit text without checking the current Health Benefit Package (HBP) list on pmjay.gov.in."
+    }
+  ]
+}

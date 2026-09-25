@@ -1,0 +1,44 @@
+{
+  "language": "English",
+  "language_code": "en",
+  "terms": {
+    "income": "Income",
+    "occupation": "Occupation",
+    "family": "Family",
+    "age": "Age",
+    "state": "State",
+    "district": "District",
+    "health_insurance": "Health Insurance",
+    "government_coverage": "Government Health Coverage",
+    "eligible": "Eligible",
+    "needs_verification": "Needs Verification",
+    "not_eligible": "Not Eligible",
+    "benefits": "Benefits",
+    "documents": "Documents",
+    "application": "Application",
+    "official_source": "Official Source",
+    "unknown": "Unknown",
+    "yes": "Yes",
+    "no": "No",
+    "i_dont_know": "I don't know"
+  },
+  "explanations": {
+    "annual_family_income": "The total money your whole family earns in a year, before any expenses are subtracted.",
+    "beneficiary_database_status": "Whether your household is already on a government list of eligible families for a scheme like PM-JAY.",
+    "existing_govt_health_coverage": "Any government health scheme you or your family currently have, like CGHS, ESIC, or a state health scheme.",
+    "needs_verification": "We could not confirm this detail from an official government source. Please check the official scheme website or office before relying on it.",
+    "database_match": "This scheme checks a government database directly - it isn't based on a formula you can calculate yourself."
+  },
+  "scheme_names_do_not_translate": [
+    "Ayushman Bharat",
+    "Pradhan Mantri Jan Arogya Yojana",
+    "PM-JAY",
+    "Ayushman Vay Vandana Yojana",
+    "Central Government Health Scheme",
+    "CGHS",
+    "Employees' State Insurance Scheme",
+    "ESIC",
+    "Chief Minister's Comprehensive Health Insurance Scheme",
+    "CMCHIS"
+  ]
+}

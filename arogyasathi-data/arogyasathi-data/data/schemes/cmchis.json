@@ -1,0 +1,45 @@
+{
+  "scheme_id": "CMCHIS",
+  "scheme_name": "Chief Minister's Comprehensive Health Insurance Scheme",
+  "short_name": "CMCHIS",
+  "official_name": "Chief Minister's Comprehensive Health Insurance Scheme (formerly Kalaignar Kaappittu Thittam), Government of Tamil Nadu",
+  "government_level": "state",
+  "responsible_ministry": "Government of Tamil Nadu",
+  "responsible_department": {
+    "value": "Reported inconsistently as either the Planning, Development and Special Initiatives Department OR the Welfare of Differently Abled Persons Department",
+    "verification_status": "NEEDS_VERIFICATION"
+  },
+  "implementing_authority": "Implemented via United India Insurance Company under the Tamil Nadu Health Systems Project (TNHSP) for the 2022-2027 cycle.",
+  "scheme_category": "state_government_health_insurance",
+  "description": "Tamil Nadu's flagship state health insurance scheme launched 23 July 2009, providing cashless treatment to economically weaker households (and certain special categories) through empanelled government and private hospitals.",
+  "applicable_states": {
+    "type": "single_state",
+    "states": [
+      "Tamil Nadu"
+    ]
+  },
+  "target_population": "Economically weaker Tamil Nadu households identified via ration/family card and an (unverified) income ceiling; plus special categories such as differently-abled persons, transgender persons, journalists, Sri Lankan Tamil refugees, and orphaned/rescued children.",
+  "eligibility_factors_used": [
+    "state_of_residence",
+    "name_on_family_ration_card",
+    "annual_family_income",
+    "special_beneficiary_category"
+  ],
+  "eligibility_factors_not_applicable": [
+    "age",
+    "occupation (not a primary gating factor)"
+  ],
+  "rule_file": "../rules/cmchis_rules.json",
+  "benefit_file": "../benefits/benefits.json",
+  "document_file": "../documents/documents.json",
+  "application_file": "../applications/applications.json",
+  "information_date": "NOT_DATED_ON_SOURCE_PAGE",
+  "source_date": "References 2022-2027 implementation cycle",
+  "accessed_date": "2026-09-25",
+  "last_verified": "2026-09-25",
+  "current_status": "ACTIVE_BUT_KEY_FIGURES_UNVERIFIED",
+  "primary_source_ids": [
+    "SRC006",
+    "SRC007"
+  ]
+}

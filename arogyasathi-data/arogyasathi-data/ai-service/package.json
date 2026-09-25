@@ -1,0 +1,40 @@
+{
+  "name": "ai-service",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "npx jest",
+    "dev": "node --import tsx server.ts",
+    "build": "npx tsc",
+    "start": "node dist/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.117.2",
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.3",
+    "express": "^5.2.1",
+    "ioredis": "^6.0.0",
+    "multer": "^2.4.0",
+    "pdf-parse": "^2.4.5",
+    "tesseract.js": "^7.0.0"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/jest": "^30.0.0",
+    "@types/multer": "^2.2.0",
+    "@types/node": "^26.6.2",
+    "jest": "^30.5.2",
+    "ts-jest": "^29.4.14",
+    "tsx": "^4.23.15",
+    "typescript": "^5.5.4"
+  }
+}

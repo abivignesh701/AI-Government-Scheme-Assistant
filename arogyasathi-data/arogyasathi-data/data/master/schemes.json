@@ -1,0 +1,77 @@
+[
+  {
+    "scheme_id": "PMJAY",
+    "name": "Ayushman Bharat - Pradhan Mantri Jan Arogya Yojana",
+    "short_name": "AB PM-JAY / PM-JAY",
+    "level": "central",
+    "states": [
+      "ALL_EXCEPT_NOTED_EXCLUSIONS"
+    ],
+    "status": "ACTIVE",
+    "scheme_file": "../schemes/pmjay.json",
+    "rule_file": "../rules/pmjay_rules.json",
+    "benefit_file": "../benefits/benefits.json",
+    "document_file": "../documents/documents.json",
+    "application_file": "../applications/applications.json"
+  },
+  {
+    "scheme_id": "VAYVANDANA",
+    "name": "AB PM-JAY expansion for senior citizens (Ayushman Vay Vandana Yojana)",
+    "short_name": "AB PM-JAY Vay Vandana",
+    "level": "central",
+    "states": [
+      "ALL_EXCEPT_NOTED_EXCLUSIONS"
+    ],
+    "status": "ACTIVE",
+    "scheme_file": "../schemes/vayvandana.json",
+    "rule_file": "../rules/vayvandana_rules.json",
+    "benefit_file": "../benefits/benefits.json",
+    "document_file": "../documents/documents.json",
+    "application_file": "../applications/applications.json"
+  },
+  {
+    "scheme_id": "CGHS",
+    "name": "Central Government Health Scheme",
+    "short_name": "CGHS",
+    "level": "central",
+    "states": [
+      "ALL_EXCEPT_NOTED_EXCLUSIONS"
+    ],
+    "status": "ACTIVE_BUT_DATA_PARTIALLY_OUTDATED",
+    "scheme_file": "../schemes/cghs.json",
+    "rule_file": "../rules/cghs_rules.json",
+    "benefit_file": "../benefits/benefits.json",
+    "document_file": "../documents/documents.json",
+    "application_file": "../applications/applications.json"
+  },
+  {
+    "scheme_id": "ESIC",
+    "name": "Employees' State Insurance Scheme",
+    "short_name": "ESI / ESIC",
+    "level": "central",
+    "states": [
+      "ALL_EXCEPT_NOTED_EXCLUSIONS"
+    ],
+    "status": "ACTIVE",
+    "scheme_file": "../schemes/esic.json",
+    "rule_file": "../rules/esic_rules.json",
+    "benefit_file": "../benefits/benefits.json",
+    "document_file": "../documents/documents.json",
+    "application_file": "../applications/applications.json"
+  },
+  {
+    "scheme_id": "CMCHIS",
+    "name": "Chief Minister's Comprehensive Health Insurance Scheme",
+    "short_name": "CMCHIS",
+    "level": "state",
+    "states": [
+      "Tamil Nadu"
+    ],
+    "status": "ACTIVE_BUT_KEY_FIGURES_UNVERIFIED",
+    "scheme_file": "../schemes/cmchis.json",
+    "rule_file": "../rules/cmchis_rules.json",
+    "benefit_file": "../benefits/benefits.json",
+    "document_file": "../documents/documents.json",
+    "application_file": "../applications/applications.json"
+  }
+]

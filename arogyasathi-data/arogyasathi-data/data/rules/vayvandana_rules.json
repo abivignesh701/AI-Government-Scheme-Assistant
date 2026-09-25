@@ -1,0 +1,73 @@
+{
+  "scheme_id": "VAYVANDANA",
+  "rules": [
+    {
+      "rule_id": "R_VAY_001",
+      "field": "age",
+      "operator": "greater_than_or_equal",
+      "value": 70,
+      "unit": "years",
+      "required": true,
+      "description": "Applicant must be 70 years of age or above, as recorded in Aadhaar. This is stated in the official parliamentary reply as the SOLE eligibility criterion for this scheme.",
+      "user_friendly_explanation": "You (or the senior citizen you're checking for) must be 70 years old or older, and the age on record must match Aadhaar.",
+      "pass_message": "Age 70+ requirement is met.",
+      "fail_message": "This specific scheme (the free 70+ health cover) is not available - the age requirement of 70 years is not met. You may still be eligible for core PM-JAY or another scheme.",
+      "unknown_message": "Age was not provided - we can't check this rule without it.",
+      "source_id": "SRC003",
+      "verification_status": "VERIFIED",
+      "unknown_behavior": "TREAT_AS_UNKNOWN"
+    },
+    {
+      "rule_id": "R_VAY_002",
+      "field": "aadhaar_ekyc_completed",
+      "operator": "equals",
+      "value": true,
+      "unit": null,
+      "required": true,
+      "description": "Aadhaar-based e-KYC is mandatory for enrolment and issuance of the Ayushman Vay Vandana card.",
+      "user_friendly_explanation": "You'll need to complete a quick Aadhaar-based identity verification (e-KYC) to actually get the card - this can't be skipped.",
+      "pass_message": "Aadhaar e-KYC is complete or can be completed as part of enrolment.",
+      "fail_message": "Aadhaar e-KYC has not been completed - this is required before a card can be issued, though it can be done during the application process.",
+      "unknown_message": "We don't know if Aadhaar e-KYC has been done - it can be completed during enrolment regardless.",
+      "source_id": "SRC003",
+      "verification_status": "VERIFIED",
+      "unknown_behavior": "TREAT_AS_UNKNOWN_BUT_NOT_BLOCKING_AT_SCREENING_STAGE"
+    },
+    {
+      "rule_id": "R_VAY_003",
+      "field": "existing_other_govt_health_scheme",
+      "operator": "requires_verification",
+      "value": [
+        "CGHS",
+        "ECHS",
+        "Ayushman_CAPF"
+      ],
+      "unit": null,
+      "required": false,
+      "description": "If the senior citizen already holds coverage under CGHS, ECHS, or Ayushman CAPF, they must make a ONE-TIME CHOICE between that existing scheme and AB-PMJAY (Vay Vandana) - they cannot hold both simultaneously. This is a choice condition, not a blanket exclusion.",
+      "user_friendly_explanation": "If you already have CGHS, ECHS, or CAPF health coverage, you'll need to pick one - either keep what you have, or switch to this new senior-citizen cover. You can't use both at once.",
+      "pass_message": "No conflicting government scheme reported, or the one-time choice has already been made in favour of this scheme.",
+      "fail_message": "Not applicable - this is a choice condition, not a fail condition.",
+      "unknown_message": "We don't know if you hold CGHS/ECHS/CAPF coverage. If you do, you'll be asked to choose between that and this scheme during enrolment.",
+      "source_id": "SRC003",
+      "verification_status": "VERIFIED",
+      "unknown_behavior": "TREAT_AS_UNKNOWN_PRESENT_CHOICE_AT_ENROLMENT"
+    },
+    {
+      "rule_id": "R_VAY_004",
+      "field": "existing_private_insurance_or_esi",
+      "operator": "not_equals",
+      "value": "BLOCKING",
+      "unit": null,
+      "required": false,
+      "description": "Holding active private health insurance or Employees' State Insurance (ESI) coverage does NOT disqualify a senior citizen from also availing AB-PMJAY (Vay Vandana) benefits.",
+      "user_friendly_explanation": "Having a private health insurance policy or ESI coverage does not stop you from also getting this free government cover.",
+      "pass_message": "Existing private insurance/ESI coverage does not block eligibility for this scheme.",
+      "fail_message": "Not applicable - this condition cannot fail.",
+      "unknown_message": "Not applicable to eligibility gating.",
+      "source_id": "SRC002",
+      "verification_status": "VERIFIED",
+      "unknown_behavior": "NOT_APPLICABLE_AS_GATE"
+    }
+  ]
+}

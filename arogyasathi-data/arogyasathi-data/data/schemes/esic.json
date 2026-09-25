@@ -1,0 +1,40 @@
+{
+  "scheme_id": "ESIC",
+  "scheme_name": "Employees' State Insurance Scheme",
+  "short_name": "ESI / ESIC",
+  "official_name": "Employees' State Insurance Scheme, under the Employees' State Insurance Act, 1948",
+  "government_level": "central",
+  "responsible_ministry": "Ministry of Labour and Employment, Government of India",
+  "responsible_department": "Employees' State Insurance Corporation (ESIC)",
+  "implementing_authority": "Employees' State Insurance Corporation (ESIC)",
+  "scheme_category": "employer_employee_contributory_social_security_and_health_insurance",
+  "description": "Statutory, self-financing social security and health insurance scheme covering employees of notified factories/establishments earning within a wage ceiling, funded by employer-employee contributions.",
+  "applicable_states": {
+    "type": "central_scheme_all_states",
+    "note": "Minimum-establishment-size threshold for coverage varies by state (10 in most States/UTs; reported as 20 in some - unverified)."
+  },
+  "target_population": "Employees earning up to Rs 21,000/month (Rs 25,000/month if disabled) at covered factories/establishments with 10+ employees (varies by state), and their dependents.",
+  "eligibility_factors_used": [
+    "monthly_gross_wage",
+    "disability_status",
+    "establishment_employee_count",
+    "employment_type"
+  ],
+  "eligibility_factors_not_applicable": [
+    "age (general beneficiary age not gated; recruitment-specific age limits are a different, unrelated context)",
+    "state (applies nationally, though thresholds vary)"
+  ],
+  "rule_file": "../rules/esic_rules.json",
+  "benefit_file": "../benefits/benefits.json",
+  "document_file": "../documents/documents.json",
+  "application_file": "../applications/applications.json",
+  "information_date": "2025-07-28",
+  "source_date": "2025-07-28",
+  "accessed_date": "2026-09-25",
+  "last_verified": "2026-09-25",
+  "current_status": "ACTIVE",
+  "primary_source_ids": [
+    "SRC005",
+    "SRC009"
+  ]
+}

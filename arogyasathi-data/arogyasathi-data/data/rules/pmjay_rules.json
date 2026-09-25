@@ -1,0 +1,92 @@
+{
+  "scheme_id": "PMJAY",
+  "rules": [
+    {
+      "rule_id": "R_PMJAY_001",
+      "field": "beneficiary_database_status",
+      "operator": "database_match",
+      "value": true,
+      "unit": null,
+      "required": true,
+      "description": "The applicant's household must appear in the SECC 2011 (or subsumed RSBY) PM-JAY beneficiary database, identified via rural deprivation criteria or urban occupational category.",
+      "user_friendly_explanation": "PM-JAY is not something you apply for from scratch - the government already has a list of eligible families based on a 2011 household survey. You need to check if your family is on that list.",
+      "pass_message": "Your household appears to match PM-JAY's SECC 2011 inclusion pattern based on the details you gave - but this MUST be confirmed on the official portal before relying on it.",
+      "fail_message": "Based on what you've told us, your household does not match the known SECC 2011 inclusion patterns for PM-JAY. You may still want to check directly, since state-specific extensions can add more families.",
+      "unknown_message": "We can't tell if your family is in the SECC 2011 database from the information given. Please check directly at beneficiary.nha.gov.in using your mobile number, Aadhaar, or ration card.",
+      "source_id": "SRC001",
+      "verification_status": "VERIFIED",
+      "unknown_behavior": "REQUIRES_EXTERNAL_DATABASE_VERIFICATION"
+    },
+    {
+      "rule_id": "R_PMJAY_002",
+      "field": "urban_occupation_category",
+      "operator": "in",
+      "value": [
+        "ragpicker",
+        "beggar",
+        "domestic_worker",
+        "street_vendor_cobbler_hawker",
+        "construction_plumber_mason_labour_painter_welder_security_guard_coolie",
+        "sweeper_sanitation_worker_mali",
+        "home_based_artisan_handicrafts_tailor",
+        "transport_worker_driver_conductor_helper_cart_puller_rickshaw_puller",
+        "shop_worker_assistant_peon_helper_delivery_attendant_waiter",
+        "electrician_mechanic_assembler_repair_worker",
+        "washerman_chowkidar"
+      ],
+      "unit": null,
+      "required": false,
+      "description": "For urban households, membership in one of the 11 officially listed occupational categories is one recognised path to SECC 2011-based inclusion.",
+      "user_friendly_explanation": "If you live in a city/town and your main earner works in one of a specific list of jobs (like street vendor, domestic worker, rickshaw puller, construction labourer, etc.), that's one of the ways a family gets included.",
+      "pass_message": "Your stated occupation matches one of the 11 urban categories PM-JAY uses for inclusion. This increases the likelihood of eligibility but does not confirm it - the household still needs to appear in the official database.",
+      "fail_message": "Your stated occupation does not match PM-JAY's urban inclusion list. You may still be eligible via the rural deprivation criteria or a state-specific extension.",
+      "unknown_message": "Occupation was not provided, so this pre-screening check could not be run.",
+      "source_id": "SRC001",
+      "verification_status": "VERIFIED",
+      "unknown_behavior": "TREAT_AS_UNKNOWN"
+    },
+    {
+      "rule_id": "R_PMJAY_003",
+      "field": "rural_deprivation_criteria_met",
+      "operator": "in",
+      "value": [
+        "D1_one_room_kucha_house",
+        "D2_no_adult_member_16_59",
+        "D3_no_adult_male_member_16_59",
+        "D4_disabled_member_no_able_bodied_adult",
+        "D5_sc_st_household",
+        "D7_landless_manual_casual_labour",
+        "automatic_inclusion_destitute_or_alms",
+        "automatic_inclusion_manual_scavenger",
+        "automatic_inclusion_primitive_tribal_group",
+        "automatic_inclusion_released_bonded_labour"
+      ],
+      "unit": null,
+      "required": false,
+      "description": "For rural households, meeting at least one SECC 2011 deprivation criterion (D1-D5, D7) or an automatic-inclusion category is one recognised path to inclusion.",
+      "user_friendly_explanation": "If you live in a village and your household matches certain hardship markers from the 2011 census (like having only one room with a mud roof, no working-age adult, a disabled member with no able-bodied adult, being SC/ST, or being a landless labourer family), that's one of the ways a family gets included.",
+      "pass_message": "Your household matches at least one SECC 2011 rural deprivation/inclusion criterion. This increases the likelihood of eligibility but does not confirm it - the household still needs to appear in the official database.",
+      "fail_message": "Your household does not appear to match the rural deprivation/inclusion criteria based on what you've told us.",
+      "unknown_message": "Not enough information was provided to check rural deprivation criteria.",
+      "source_id": "SRC001",
+      "verification_status": "VERIFIED",
+      "unknown_behavior": "TREAT_AS_UNKNOWN"
+    },
+    {
+      "rule_id": "R_PMJAY_004",
+      "field": "family_size",
+      "operator": "requires_verification",
+      "value": "NO_CAP",
+      "unit": "members",
+      "required": false,
+      "description": "There is no restriction on family size for benefit eligibility once a household is included - the Rs 5 lakh cover is a family floater with no member limit (unlike the old RSBY, which capped at 5 members).",
+      "user_friendly_explanation": "However many people are in your family, they can all share the same yearly cover - there's no cut-off number of family members.",
+      "pass_message": "Not applicable as a gating condition - informational only.",
+      "fail_message": "Not applicable - this condition cannot fail.",
+      "unknown_message": "Not applicable.",
+      "source_id": "SRC001",
+      "verification_status": "VERIFIED",
+      "unknown_behavior": "NOT_APPLICABLE_AS_GATE"
+    }
+  ]
+}

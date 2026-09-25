@@ -1,0 +1,38 @@
+{
+  "scheme_id": "CGHS",
+  "scheme_name": "Central Government Health Scheme",
+  "short_name": "CGHS",
+  "official_name": "Central Government Health Scheme (CGHS)",
+  "government_level": "central",
+  "responsible_ministry": "Ministry of Health and Family Welfare, Government of India",
+  "responsible_department": "Department of Health and Family Welfare (CGHS is a Central Sector Scheme headed by Additional Secretary & Director General, CGHS)",
+  "implementing_authority": "CGHS Wellness Centres / Additional Directors of CGHS in each covered city",
+  "scheme_category": "government_employee_health_scheme",
+  "description": "India's oldest ongoing central health scheme (started 1954), providing comprehensive OPD and hospitalization care to serving/retired Central Government employees, MPs, judges, and other specified categories, in notified CGHS-covered cities.",
+  "applicable_states": {
+    "type": "city_specific_not_state_wide",
+    "note": "Coverage is by NOTIFIED CITY, not by state; roughly 25-26 cities per the 2015-16 source used here, reportedly expanded since (NEEDS_VERIFICATION)."
+  },
+  "target_population": "Serving/retired Central Government employees, their dependents, and specific additional categories (MPs, ex-MPs, judges, Freedom Fighters, Delhi Police, Railway Board employees, etc.) residing in a CGHS-covered city.",
+  "eligibility_factors_used": [
+    "cghs_eligible_category",
+    "residence_city_cghs_covered"
+  ],
+  "eligibility_factors_not_applicable": [
+    "income_bracket",
+    "age (tied to employment/pension status, not a standalone age gate)"
+  ],
+  "rule_file": "../rules/cghs_rules.json",
+  "benefit_file": "../benefits/benefits.json",
+  "document_file": "../documents/documents.json",
+  "application_file": "../applications/applications.json",
+  "information_date": "2016 (Annual Report 2015-16)",
+  "source_date": "2016",
+  "accessed_date": "2026-09-25",
+  "last_verified": "2026-09-25",
+  "current_status": "ACTIVE_BUT_DATA_PARTIALLY_OUTDATED",
+  "primary_source_ids": [
+    "SRC004",
+    "SRC008"
+  ]
+}

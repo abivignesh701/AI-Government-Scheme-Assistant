@@ -1,0 +1,444 @@
+{
+  "description": "Flattened index of all eligibility rules across all schemes, plus each scheme's rule-combination (matching) logic.",
+  "matching_logic_by_scheme": {
+    "PMJAY": {
+      "scheme_id": "PMJAY",
+      "logic_type": "DATABASE_VERIFICATION_REQUIRED",
+      "primary_rule": "R_PMJAY_001",
+      "supporting_prescreen_rules": {
+        "logic_type": "ANY",
+        "rules": [
+          "R_PMJAY_002",
+          "R_PMJAY_003"
+        ]
+      },
+      "informational_only_rules": [
+        "R_PMJAY_004"
+      ],
+      "notes": "PM-JAY is fundamentally an entitlement scheme keyed to a pre-existing household database (SECC 2011/RSBY), not a computable income/occupation formula. R_PMJAY_002 and R_PMJAY_003 are pre-screening heuristics that estimate likelihood of inclusion; they must NOT be reported to the user as a confirmed PASS. Final determination requires R_PMJAY_001 (database_match), which can only be resolved by querying beneficiary.nha.gov.in. A rule engine should surface pre-screen results as 'Likely eligible - please confirm via official portal' rather than a hard PASS."
+    },
+    "VAYVANDANA": {
+      "scheme_id": "VAYVANDANA",
+      "logic_type": "ALL_REQUIRED_RULES_PASS",
+      "rules": [
+        "R_VAY_001",
+        "R_VAY_002"
+      ],
+      "conditional_rules": {
+        "R_VAY_003": "Presented as a CHOICE to the user if they hold CGHS/ECHS/CAPF coverage, not a pass/fail gate.",
+        "R_VAY_004": "Purely informational - never blocks eligibility."
+      },
+      "notes": "Age 70+ (Aadhaar-verified) is explicitly documented as the SOLE substantive eligibility criterion; e-KYC is a procedural requirement to actually receive the card. All other conditions are about which scheme to use, not about basic qualification."
+    },
+    "CGHS": {
+      "scheme_id": "CGHS",
+      "logic_type": "ALL_REQUIRED_RULES_PASS",
+      "rules": [
+        "R_CGHS_001",
+        "R_CGHS_002"
+      ],
+      "notes": "Both category membership AND residence in a covered city are required. R_CGHS_002's city list is outdated (2015-16) - see conflicts.json CONFLICT_003 - so a FAIL result on R_CGHS_002 alone should be surfaced as NEEDS_VERIFICATION rather than a hard FAIL."
+    },
+    "ESIC": {
+      "scheme_id": "ESIC",
+      "logic_type": "COMPOUND",
+      "expression": "R_ESIC_003 AND R_ESIC_004 AND (R_ESIC_001 OR R_ESIC_002)",
+      "notes": "Establishment size (R_ESIC_003) and payroll-employment status (R_ESIC_004) are both mandatory. The wage-ceiling test is Rs 21,000 generally, OR Rs 25,000 if the person has a disability (R_ESIC_002 raises the effective ceiling rather than adding an independent requirement)."
+    },
+    "CMCHIS": {
+      "scheme_id": "CMCHIS",
+      "logic_type": "ALL_REQUIRED_RULES_PASS_WITH_VERIFICATION_GAP",
+      "rules": [
+        "R_CMCHIS_001",
+        "R_CMCHIS_002",
+        "R_CMCHIS_003"
+      ],
+      "alternate_path_rules": [
+        "R_CMCHIS_004"
+      ],
+      "notes": "R_CMCHIS_003 (income ceiling) has an unresolved numeric conflict between sources and MUST return NEEDS_VERIFICATION rather than a computed PASS/FAIL until confirmed against a primary Tamil Nadu Government source. R_CMCHIS_004 represents a possible alternate/no-income-ceiling path for specific special categories, itself unverified."
+    }
+  },
+  "all_rules": {
+    "PMJAY": [
+      {
+        "rule_id": "R_PMJAY_001",
+        "field": "beneficiary_database_status",
+        "operator": "database_match",
+        "value": true,
+        "unit": null,
+        "required": true,
+        "description": "The applicant's household must appear in the SECC 2011 (or subsumed RSBY) PM-JAY beneficiary database, identified via rural deprivation criteria or urban occupational category.",
+        "user_friendly_explanation": "PM-JAY is not something you apply for from scratch - the government already has a list of eligible families based on a 2011 household survey. You need to check if your family is on that list.",
+        "pass_message": "Your household appears to match PM-JAY's SECC 2011 inclusion pattern based on the details you gave - but this MUST be confirmed on the official portal before relying on it.",
+        "fail_message": "Based on what you've told us, your household does not match the known SECC 2011 inclusion patterns for PM-JAY. You may still want to check directly, since state-specific extensions can add more families.",
+        "unknown_message": "We can't tell if your family is in the SECC 2011 database from the information given. Please check directly at beneficiary.nha.gov.in using your mobile number, Aadhaar, or ration card.",
+        "source_id": "SRC001",
+        "verification_status": "VERIFIED",
+        "unknown_behavior": "REQUIRES_EXTERNAL_DATABASE_VERIFICATION"
+      },
+      {
+        "rule_id": "R_PMJAY_002",
+        "field": "urban_occupation_category",
+        "operator": "in",
+        "value": [
+          "ragpicker",
+          "beggar",
+          "domestic_worker",
+          "street_vendor_cobbler_hawker",
+          "construction_plumber_mason_labour_painter_welder_security_guard_coolie",
+          "sweeper_sanitation_worker_mali",
+          "home_based_artisan_handicrafts_tailor",
+          "transport_worker_driver_conductor_helper_cart_puller_rickshaw_puller",
+          "shop_worker_assistant_peon_helper_delivery_attendant_waiter",
+          "electrician_mechanic_assembler_repair_worker",
+          "washerman_chowkidar"
+        ],
+        "unit": null,
+        "required": false,
+        "description": "For urban households, membership in one of the 11 officially listed occupational categories is one recognised path to SECC 2011-based inclusion.",
+        "user_friendly_explanation": "If you live in a city/town and your main earner works in one of a specific list of jobs (like street vendor, domestic worker, rickshaw puller, construction labourer, etc.), that's one of the ways a family gets included.",
+        "pass_message": "Your stated occupation matches one of the 11 urban categories PM-JAY uses for inclusion. This increases the likelihood of eligibility but does not confirm it - the household still needs to appear in the official database.",
+        "fail_message": "Your stated occupation does not match PM-JAY's urban inclusion list. You may still be eligible via the rural deprivation criteria or a state-specific extension.",
+        "unknown_message": "Occupation was not provided, so this pre-screening check could not be run.",
+        "source_id": "SRC001",
+        "verification_status": "VERIFIED",
+        "unknown_behavior": "TREAT_AS_UNKNOWN"
+      },
+      {
+        "rule_id": "R_PMJAY_003",
+        "field": "rural_deprivation_criteria_met",
+        "operator": "in",
+        "value": [
+          "D1_one_room_kucha_house",
+          "D2_no_adult_member_16_59",
+          "D3_no_adult_male_member_16_59",
+          "D4_disabled_member_no_able_bodied_adult",
+          "D5_sc_st_household",
+          "D7_landless_manual_casual_labour",
+          "automatic_inclusion_destitute_or_alms",
+          "automatic_inclusion_manual_scavenger",
+          "automatic_inclusion_primitive_tribal_group",
+          "automatic_inclusion_released_bonded_labour"
+        ],
+        "unit": null,
+        "required": false,
+        "description": "For rural households, meeting at least one SECC 2011 deprivation criterion (D1-D5, D7) or an automatic-inclusion category is one recognised path to inclusion.",
+        "user_friendly_explanation": "If you live in a village and your household matches certain hardship markers from the 2011 census (like having only one room with a mud roof, no working-age adult, a disabled member with no able-bodied adult, being SC/ST, or being a landless labourer family), that's one of the ways a family gets included.",
+        "pass_message": "Your household matches at least one SECC 2011 rural deprivation/inclusion criterion. This increases the likelihood of eligibility but does not confirm it - the household still needs to appear in the official database.",
+        "fail_message": "Your household does not appear to match the rural deprivation/inclusion criteria based on what you've told us.",
+        "unknown_message": "Not enough information was provided to check rural deprivation criteria.",
+        "source_id": "SRC001",
+        "verification_status": "VERIFIED",
+        "unknown_behavior": "TREAT_AS_UNKNOWN"
+      },
+      {
+        "rule_id": "R_PMJAY_004",
+        "field": "family_size",
+        "operator": "requires_verification",
+        "value": "NO_CAP",
+        "unit": "members",
+        "required": false,
+        "description": "There is no restriction on family size for benefit eligibility once a household is included - the Rs 5 lakh cover is a family floater with no member limit (unlike the old RSBY, which capped at 5 members).",
+        "user_friendly_explanation": "However many people are in your family, they can all share the same yearly cover - there's no cut-off number of family members.",
+        "pass_message": "Not applicable as a gating condition - informational only.",
+        "fail_message": "Not applicable - this condition cannot fail.",
+        "unknown_message": "Not applicable.",
+        "source_id": "SRC001",
+        "verification_status": "VERIFIED",
+        "unknown_behavior": "NOT_APPLICABLE_AS_GATE"
+      }
+    ],
+    "VAYVANDANA": [
+      {
+        "rule_id": "R_VAY_001",
+        "field": "age",
+        "operator": "greater_than_or_equal",
+        "value": 70,
+        "unit": "years",
+        "required": true,
+        "description": "Applicant must be 70 years of age or above, as recorded in Aadhaar. This is stated in the official parliamentary reply as the SOLE eligibility criterion for this scheme.",
+        "user_friendly_explanation": "You (or the senior citizen you're checking for) must be 70 years old or older, and the age on record must match Aadhaar.",
+        "pass_message": "Age 70+ requirement is met.",
+        "fail_message": "This specific scheme (the free 70+ health cover) is not available - the age requirement of 70 years is not met. You may still be eligible for core PM-JAY or another scheme.",
+        "unknown_message": "Age was not provided - we can't check this rule without it.",
+        "source_id": "SRC003",
+        "verification_status": "VERIFIED",
+        "unknown_behavior": "TREAT_AS_UNKNOWN"
+      },
+      {
+        "rule_id": "R_VAY_002",
+        "field": "aadhaar_ekyc_completed",
+        "operator": "equals",
+        "value": true,
+        "unit": null,
+        "required": true,
+        "description": "Aadhaar-based e-KYC is mandatory for enrolment and issuance of the Ayushman Vay Vandana card.",
+        "user_friendly_explanation": "You'll need to complete a quick Aadhaar-based identity verification (e-KYC) to actually get the card - this can't be skipped.",
+        "pass_message": "Aadhaar e-KYC is complete or can be completed as part of enrolment.",
+        "fail_message": "Aadhaar e-KYC has not been completed - this is required before a card can be issued, though it can be done during the application process.",
+        "unknown_message": "We don't know if Aadhaar e-KYC has been done - it can be completed during enrolment regardless.",
+        "source_id": "SRC003",
+        "verification_status": "VERIFIED",
+        "unknown_behavior": "TREAT_AS_UNKNOWN_BUT_NOT_BLOCKING_AT_SCREENING_STAGE"
+      },
+      {
+        "rule_id": "R_VAY_003",
+        "field": "existing_other_govt_health_scheme",
+        "operator": "requires_verification",
+        "value": [
+          "CGHS",
+          "ECHS",
+          "Ayushman_CAPF"
+        ],
+        "unit": null,
+        "required": false,
+        "description": "If the senior citizen already holds coverage under CGHS, ECHS, or Ayushman CAPF, they must make a ONE-TIME CHOICE between that existing scheme and AB-PMJAY (Vay Vandana) - they cannot hold both simultaneously. This is a choice condition, not a blanket exclusion.",
+        "user_friendly_explanation": "If you already have CGHS, ECHS, or CAPF health coverage, you'll need to pick one - either keep what you have, or switch to this new senior-citizen cover. You can't use both at once.",
+        "pass_message": "No conflicting government scheme reported, or the one-time choice has already been made in favour of this scheme.",
+        "fail_message": "Not applicable - this is a choice condition, not a fail condition.",
+        "unknown_message": "We don't know if you hold CGHS/ECHS/CAPF coverage. If you do, you'll be asked to choose between that and this scheme during enrolment.",
+        "source_id": "SRC003",
+        "verification_status": "VERIFIED",
+        "unknown_behavior": "TREAT_AS_UNKNOWN_PRESENT_CHOICE_AT_ENROLMENT"
+      },
+      {
+        "rule_id": "R_VAY_004",
+        "field": "existing_private_insurance_or_esi",
+        "operator": "not_equals",
+        "value": "BLOCKING",
+        "unit": null,
+        "required": false,
+        "description": "Holding active private health insurance or Employees' State Insurance (ESI) coverage does NOT disqualify a senior citizen from also availing AB-PMJAY (Vay Vandana) benefits.",
+        "user_friendly_explanation": "Having a private health insurance policy or ESI coverage does not stop you from also getting this free government cover.",
+        "pass_message": "Existing private insurance/ESI coverage does not block eligibility for this scheme.",
+        "fail_message": "Not applicable - this condition cannot fail.",
+        "unknown_message": "Not applicable to eligibility gating.",
+        "source_id": "SRC002",
+        "verification_status": "VERIFIED",
+        "unknown_behavior": "NOT_APPLICABLE_AS_GATE"
+      }
+    ],
+    "CGHS": [
+      {
+        "rule_id": "R_CGHS_001",
+        "field": "cghs_eligible_category",
+        "operator": "in",
+        "value": [
+          "central_govt_employee_civil_estimates",
+          "central_govt_pensioner_civil_estimates",
+          "cpf_retiree_and_family",
+          "widow_of_pensioner_receiving_family_pension",
+          "member_of_parliament_sitting",
+          "member_of_parliament_ex",
+          "governor_or_lt_governor_ex",
+          "freedom_fighter",
+          "vice_president_ex",
+          "supreme_court_judge_sitting_or_retired",
+          "high_court_judge_retired",
+          "autonomous_statutory_body_staff_extended_cghs_delhi",
+          "pib_accredited_journalist_delhi",
+          "delhi_police_personnel_in_delhi",
+          "railway_board_employee",
+          "central_govt_servant_absorbed_in_psu_statutory_or_autonomous_body_with_prorata_pension"
+        ],
+        "unit": null,
+        "required": true,
+        "description": "Applicant must belong to one of the officially notified categories of persons eligible to join CGHS.",
+        "user_friendly_explanation": "CGHS is mainly for people who work for (or are pensioners of) the Central Government, plus a specific extra list: MPs, ex-MPs, ex-Governors, Freedom Fighters, sitting/retired judges of the Supreme Court, retired High Court judges, Delhi Police (in Delhi), Railway Board employees, and a few other named groups.",
+        "pass_message": "Your stated category is on the officially listed CGHS-eligible category list.",
+        "fail_message": "Your stated category does not appear on the officially listed CGHS-eligible category list based on this 2015-16 source; however this list should be reconfirmed on the current CGHS portal since categories can be updated by government order.",
+        "unknown_message": "Employment/pensioner/special category was not provided.",
+        "source_id": "SRC004",
+        "verification_status": "VERIFIED",
+        "unknown_behavior": "TREAT_AS_UNKNOWN",
+        "verification_notes": "Category list confirmed from an official MoHFW Annual Report (2015-16) plus a corroborating official DoT circular and a 2017-18 Annual Report chapter found during research; the CORE list of categories has remained stable across these sources spanning ~2015-2018, but should still be re-checked against cghs.mohfw.gov.in (SRC008) for any newer additions/removals."
+      },
+      {
+        "rule_id": "R_CGHS_002",
+        "field": "residence_city_cghs_covered",
+        "operator": "in",
+        "value": [
+          "Delhi_NCR",
+          "Mumbai",
+          "Allahabad_Prayagraj",
+          "Kanpur",
+          "Kolkata",
+          "Ranchi",
+          "Nagpur",
+          "Chennai",
+          "Patna",
+          "Bengaluru",
+          "Hyderabad",
+          "Meerut",
+          "Jaipur",
+          "Lucknow",
+          "Pune",
+          "Ahmedabad",
+          "Bhubaneswar",
+          "Jabalpur",
+          "Guwahati",
+          "Thiruvananthapuram",
+          "Bhopal",
+          "Chandigarh",
+          "Shillong",
+          "Dehradun",
+          "Jammu",
+          "Gandhinagar"
+        ],
+        "unit": null,
+        "required": true,
+        "description": "Eligibility for CGHS medical facilities is determined by the beneficiary's place of RESIDENCE being in a CGHS-notified/covered city, not by the employee's official duty headquarters. This list reflects cities notified as of the 2015-16 Annual Report; more cities have reportedly been added since (see uncertain_information).",
+        "user_friendly_explanation": "You must actually LIVE in a city where CGHS operates - not just work for a job based there. The list of covered cities has grown over the decades and may have grown further since this data was last checked.",
+        "pass_message": "Your city of residence was on the officially confirmed CGHS-covered list as of the 2015-16 source.",
+        "fail_message": "Your city was not on the 2015-16 official CGHS-covered list, BUT more cities have been added since then (a 2026-dated secondary source claims 80 cities) - this must be reconfirmed on cghs.mohfw.gov.in before concluding non-eligibility.",
+        "unknown_message": "City of residence was not provided.",
+        "source_id": "SRC004",
+        "verification_status": "NEEDS_VERIFICATION",
+        "unknown_behavior": "TREAT_AS_UNKNOWN",
+        "verification_notes": "This city list is CONFIRMED OUTDATED (source is the 2015-16 Annual Report, listing ~25-26 cities). A secondary, unverified source claims ~80 cities as of 2026. See conflicts.json entry CONFLICT_003. Do not treat this list as exhaustive/current in production."
+      }
+    ],
+    "ESIC": [
+      {
+        "rule_id": "R_ESIC_001",
+        "field": "monthly_gross_wage",
+        "operator": "less_than_or_equal",
+        "value": 21000,
+        "unit": "INR_per_month",
+        "required": true,
+        "description": "Employee's gross monthly wages must not exceed Rs. 21,000/month for standard ESI coverage eligibility (see R_ESIC_002 for the higher ceiling applicable to persons with disability).",
+        "user_friendly_explanation": "Your gross monthly salary (basic + dearness allowance + regular allowances, but not overtime/bonus) must be Rs 21,000 or less.",
+        "pass_message": "Wage is within the Rs 21,000/month ceiling.",
+        "fail_message": "Wage exceeds the Rs 21,000/month ceiling, so you are not newly eligible for ESI coverage (unless the Rs 25,000 disability ceiling applies, or you are continuing coverage mid-contribution-period).",
+        "unknown_message": "Monthly wage was not provided.",
+        "source_id": "SRC005",
+        "verification_status": "VERIFIED",
+        "unknown_behavior": "TREAT_AS_UNKNOWN"
+      },
+      {
+        "rule_id": "R_ESIC_002",
+        "field": "disability_status",
+        "operator": "equals",
+        "value": true,
+        "unit": null,
+        "required": false,
+        "description": "If the employee is a person with disability (PwD), the applicable wage ceiling is raised to Rs. 25,000/month instead of Rs. 21,000/month.",
+        "user_friendly_explanation": "If you have a disability, your salary limit for ESI eligibility is higher - Rs 25,000 instead of Rs 21,000.",
+        "pass_message": "Disability status noted - Rs 25,000/month ceiling applies instead of Rs 21,000.",
+        "fail_message": "Not applicable - standard Rs 21,000 ceiling applies.",
+        "unknown_message": "Disability status not provided - standard Rs 21,000 ceiling will be applied by default; please confirm if this does not apply to you.",
+        "source_id": "SRC005",
+        "verification_status": "VERIFIED",
+        "unknown_behavior": "TREAT_AS_UNKNOWN_APPLY_STANDARD_CEILING"
+      },
+      {
+        "rule_id": "R_ESIC_003",
+        "field": "establishment_employee_count",
+        "operator": "greater_than_or_equal",
+        "value": 10,
+        "unit": "employees",
+        "required": true,
+        "description": "The employee must work at a factory/establishment covered under the ESI Act, 1948, in a district notified by the Central Government, employing 10 or more persons (in most States/UTs).",
+        "user_friendly_explanation": "Your employer's workplace needs to have at least 10 employees and be registered under the ESI scheme.",
+        "pass_message": "Establishment meets the minimum employee-count threshold.",
+        "fail_message": "Establishment does not meet the minimum employee-count threshold (or is not in a notified district), so ESI coverage does not apply.",
+        "unknown_message": "Establishment employee count was not provided.",
+        "source_id": "SRC005",
+        "verification_status": "VERIFIED",
+        "unknown_behavior": "TREAT_AS_UNKNOWN",
+        "verification_notes": "A higher threshold (20 employees) is reported by secondary sources for some states (Maharashtra, Tamil Nadu, Telangana, Odisha, Chandigarh) but this state-wise variation could NOT be confirmed against an official ESIC notification in this research pass - see conflicts.json CONFLICT_004."
+      },
+      {
+        "rule_id": "R_ESIC_004",
+        "field": "employment_type",
+        "operator": "not_equals",
+        "value": "self_employed_or_gig_worker_not_on_payroll",
+        "unit": null,
+        "required": true,
+        "description": "Coverage under the ESI Act applies to employees on an employer's payroll at a covered establishment; self-employed individuals, freelancers, and gig/platform workers not on a payroll are not covered under this Act.",
+        "user_friendly_explanation": "You need to be a regular employee on your employer's payroll - self-employed people, freelancers, and gig workers without an employer relationship are not covered by this particular scheme.",
+        "pass_message": "Employment type is consistent with ESI coverage (payroll employee).",
+        "fail_message": "Self-employed/freelance/gig work without a payroll employer relationship is not covered under the ESI Act.",
+        "unknown_message": "Employment type was not provided.",
+        "source_id": "SRC009",
+        "verification_status": "NEEDS_VERIFICATION",
+        "unknown_behavior": "TREAT_AS_UNKNOWN",
+        "verification_notes": "This exclusion is consistent with the structure of the ESI Act (an employer-employee contribution scheme) but was not found verbatim on an official primary document fetched in this research pass; it is sourced only to the general ESIC portal reference (SRC009) and should be confirmed against the ESI Act, 1948 text or an ESIC circular before being enforced as a hard rule."
+      }
+    ],
+    "CMCHIS": [
+      {
+        "rule_id": "R_CMCHIS_001",
+        "field": "state_of_residence",
+        "operator": "equals",
+        "value": "Tamil Nadu",
+        "unit": null,
+        "required": true,
+        "description": "Applicant must be a resident of Tamil Nadu.",
+        "user_friendly_explanation": "You need to live in Tamil Nadu to apply for this scheme.",
+        "pass_message": "Tamil Nadu residency condition met.",
+        "fail_message": "This is a Tamil Nadu state scheme - residents of other states are not eligible.",
+        "unknown_message": "State of residence was not provided.",
+        "source_id": "SRC006",
+        "verification_status": "VERIFIED",
+        "unknown_behavior": "TREAT_AS_UNKNOWN"
+      },
+      {
+        "rule_id": "R_CMCHIS_002",
+        "field": "name_on_family_ration_card",
+        "operator": "equals",
+        "value": true,
+        "unit": null,
+        "required": true,
+        "description": "The applicant's name must be present on the family/ration card used for household verification.",
+        "user_friendly_explanation": "Your name needs to be listed on your family's ration card.",
+        "pass_message": "Name is present on the family/ration card.",
+        "fail_message": "Name is not present on a family/ration card - this is a required document/condition for CMCHIS.",
+        "unknown_message": "We don't know if the applicant's name is on a family/ration card.",
+        "source_id": "SRC006",
+        "verification_status": "VERIFIED",
+        "unknown_behavior": "TREAT_AS_UNKNOWN"
+      },
+      {
+        "rule_id": "R_CMCHIS_003",
+        "field": "annual_family_income",
+        "operator": "less_than_or_equal",
+        "value": null,
+        "unit": "INR_per_year",
+        "required": true,
+        "description": "CONFLICTING FIGURES FOUND ACROSS SOURCES: household annual income must be below a stated ceiling, reported as EITHER approximately Rs. 72,000/year OR approximately Rs. 1,20,000/year depending on the (non-primary) source consulted. NEITHER figure could be confirmed against an official Tamil Nadu Government Order or the scheme's own portal in this research pass. The numeric 'value' field is deliberately left as null so a rule engine does NOT silently apply an unverified threshold.",
+        "user_friendly_explanation": "There IS a family income limit for this scheme, but our sources disagree on the exact amount (we've seen both about Rs 72,000/year and about Rs 1,20,000/year quoted). Please check the current limit on the official Tamil Nadu health insurance scheme portal or with the Village Administrative Officer before assuming you do or don't qualify.",
+        "pass_message": "NOT COMPUTABLE - the income ceiling itself is unverified. Do not report PASS/FAIL for this rule until the correct figure is confirmed.",
+        "fail_message": "NOT COMPUTABLE - the income ceiling itself is unverified.",
+        "unknown_message": "This scheme has an income ceiling, but our data on the exact rupee amount is unverified/conflicting. Please check the official portal.",
+        "source_id": "SRC006",
+        "verification_status": "NEEDS_VERIFICATION",
+        "unknown_behavior": "BLOCK_DETERMINISTIC_RESULT_SHOW_NEEDS_VERIFICATION",
+        "verification_notes": "See conflicts.json CONFLICT_001 for both candidate figures and their (non-primary) sources."
+      },
+      {
+        "rule_id": "R_CMCHIS_004",
+        "field": "special_beneficiary_category",
+        "operator": "in",
+        "value": [
+          "transgender_person",
+          "differently_abled_person",
+          "accredited_journalist",
+          "sri_lankan_tamil_refugee_with_citizenship_proof",
+          "orphaned_or_rescued_child"
+        ],
+        "unit": null,
+        "required": false,
+        "description": "Certain notified special categories are reported to be covered under CMCHIS-linked schemes, in some cases without the standard income ceiling (e.g., differently-abled persons per SRC007). This could not be fully cross-verified against a single authoritative Tamil Nadu government source and may represent a distinct sub-scheme rather than a blanket exception within core CMCHIS.",
+        "user_friendly_explanation": "If you're a transgender person, a person with disability, an accredited journalist, a Sri Lankan Tamil refugee, or an orphaned/rescued child, there may be a special path into this scheme (sometimes without the income limit) - but this needs to be checked directly with the Tamil Nadu scheme office since our sources aren't fully consistent on this.",
+        "pass_message": "Special category noted - please verify the specific sub-scheme and its terms directly with the official CMCHIS office.",
+        "fail_message": "No special category reported - standard eligibility path (residency, ration card, income ceiling) applies.",
+        "unknown_message": "Special category status was not provided.",
+        "source_id": "SRC007",
+        "verification_status": "NEEDS_VERIFICATION",
+        "unknown_behavior": "TREAT_AS_UNKNOWN"
+      }
+    ]
+  }
+}

@@ -1,0 +1,125 @@
+{
+  "documents_by_scheme": {
+    "PMJAY": [
+      {
+        "document_id": "D_PMJAY_001",
+        "name": "Aadhaar Card",
+        "purpose": "Identity verification and e-KYC for card generation.",
+        "mandatory": true,
+        "when_required": "At the time of e-KYC / card generation via CSC, hospital Ayushman Mitra desk, or the app.",
+        "source_id": "SRC001",
+        "verification_status": "NEEDS_VERIFICATION",
+        "notes": "Confirmed as commonly used for e-KYC across NHA-linked processes, but an exhaustive official document checklist page was not directly fetched in this pass."
+      },
+      {
+        "document_id": "D_PMJAY_002",
+        "name": "Ration Card / Family ID",
+        "purpose": "Household identification for matching against the SECC 2011 database.",
+        "mandatory": false,
+        "when_required": "As an alternative or supplementary identifier to Aadhaar during eligibility search.",
+        "source_id": "SRC001",
+        "verification_status": "NEEDS_VERIFICATION"
+      }
+    ],
+    "VAYVANDANA": [
+      {
+        "document_id": "D_VAY_001",
+        "name": "Aadhaar Card",
+        "purpose": "Mandatory age verification (70+) and e-KYC for enrolment and card issuance.",
+        "mandatory": true,
+        "when_required": "At the time of enrolment / e-KYC.",
+        "source_id": "SRC003",
+        "verification_status": "VERIFIED"
+      }
+    ],
+    "CGHS": [
+      {
+        "document_id": "D_CGHS_001",
+        "name": "Photograph (applicant and dependents)",
+        "purpose": "Identity record for CGHS card.",
+        "mandatory": true,
+        "when_required": "At time of application.",
+        "source_id": "SRC004",
+        "verification_status": "NEEDS_VERIFICATION",
+        "notes": "Standard document list drawn from secondary process guides, not the primary Annual Report source used for eligibility categories; should be reconfirmed at cghs.mohfw.gov.in (SRC008)."
+      },
+      {
+        "document_id": "D_CGHS_002",
+        "name": "Proof of residence",
+        "purpose": "To confirm residence in a CGHS-covered city, which determines eligibility.",
+        "mandatory": true,
+        "when_required": "At time of application.",
+        "source_id": "SRC008",
+        "verification_status": "NEEDS_VERIFICATION"
+      },
+      {
+        "document_id": "D_CGHS_003",
+        "name": "Proof of dependents",
+        "purpose": "To register eligible dependent family members.",
+        "mandatory": false,
+        "when_required": "When adding dependents.",
+        "source_id": "SRC008",
+        "verification_status": "NEEDS_VERIFICATION"
+      },
+      {
+        "document_id": "D_CGHS_004",
+        "name": "Pension Payment Order (PPO) or provisional PPO / Last Pay Certificate",
+        "purpose": "Proof of pensioner status for retired employees.",
+        "mandatory": true,
+        "when_required": "For pensioner applicants only, at time of application.",
+        "source_id": "SRC008",
+        "verification_status": "NEEDS_VERIFICATION"
+      }
+    ],
+    "ESIC": [
+      {
+        "document_id": "D_ESIC_001",
+        "name": "Employer registration documents (Form 1, PAN, address proof, registration certificate, employee list)",
+        "purpose": "For the EMPLOYER to register the establishment with ESIC.",
+        "mandatory": true,
+        "when_required": "At the time of establishment registration (employer-side, within 15 days of the Act becoming applicable).",
+        "source_id": "SRC009",
+        "verification_status": "NEEDS_VERIFICATION",
+        "notes": "Individual-employee document requirements beyond payroll enrolment were not confirmed against a primary source in this research pass."
+      }
+    ],
+    "CMCHIS": [
+      {
+        "document_id": "D_CMCHIS_001",
+        "name": "Self-declaration by head of family",
+        "purpose": "Declares household composition and eligibility basis.",
+        "mandatory": true,
+        "when_required": "At the time of enrolment.",
+        "source_id": "SRC006",
+        "verification_status": "NEEDS_VERIFICATION"
+      },
+      {
+        "document_id": "D_CMCHIS_002",
+        "name": "Ration Card / Family Card",
+        "purpose": "Proof that the applicant's name is part of an eligible household.",
+        "mandatory": true,
+        "when_required": "At the time of enrolment.",
+        "source_id": "SRC006",
+        "verification_status": "NEEDS_VERIFICATION"
+      },
+      {
+        "document_id": "D_CMCHIS_003",
+        "name": "Income Certificate (issued by Village Administrative Officer / Revenue authorities)",
+        "purpose": "To verify the household falls within the (currently unverified) income ceiling.",
+        "mandatory": true,
+        "when_required": "At the time of enrolment.",
+        "source_id": "SRC006",
+        "verification_status": "NEEDS_VERIFICATION"
+      },
+      {
+        "document_id": "D_CMCHIS_004",
+        "name": "Aadhaar Card",
+        "purpose": "Identity verification.",
+        "mandatory": true,
+        "when_required": "At the time of enrolment.",
+        "source_id": "SRC006",
+        "verification_status": "NEEDS_VERIFICATION"
+      }
+    ]
+  }
+}

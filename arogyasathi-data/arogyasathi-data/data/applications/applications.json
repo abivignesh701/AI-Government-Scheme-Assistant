@@ -1,0 +1,155 @@
+{
+  "applications_by_scheme": {
+    "PMJAY": {
+      "official_application_url": "https://beneficiary.nha.gov.in",
+      "official_helpline": "14555 or 1800-111-565 (24x7 National Call Centre)",
+      "official_email": "NOT_FOUND_IN_PRIMARY_SOURCE",
+      "steps": [
+        {
+          "step_number": 1,
+          "title": "Check database inclusion",
+          "description": "Search the Beneficiary Identification System at beneficiary.nha.gov.in or mera.pmjay.gov.in using mobile number, Aadhaar, or ration card to see if the household is in the SECC 2011/RSBY database.",
+          "user_friendly_description": "Go online and check if your family is already on the government's list.",
+          "source_id": "SRC001"
+        },
+        {
+          "step_number": 2,
+          "title": "Complete e-KYC",
+          "description": "If included, complete Aadhaar-based (or non-Aadhaar) e-KYC to generate the Ayushman Card.",
+          "user_friendly_description": "Verify your identity (usually with Aadhaar) to get your card generated.",
+          "source_id": "SRC001"
+        },
+        {
+          "step_number": 3,
+          "title": "Assisted registration (if needed)",
+          "description": "Visit a Common Service Centre (CSC) or an empanelled hospital's Ayushman Mitra help desk for assisted verification and card generation.",
+          "user_friendly_description": "If you need help, visit a Common Service Centre or the help desk at an empanelled hospital.",
+          "source_id": "SRC001"
+        }
+      ]
+    },
+    "VAYVANDANA": {
+      "official_application_url": "https://beneficiary.nha.gov.in ; https://pmjay.gov.in",
+      "official_helpline": "14555 (general PM-JAY helpline); 1800-11-0770 (reported Vay Vandana support line - LOW confidence, unverified against a primary source)",
+      "official_email": "NOT_FOUND_IN_PRIMARY_SOURCE",
+      "steps": [
+        {
+          "step_number": 1,
+          "title": "Confirm age 70+",
+          "description": "Confirm the senior citizen's age is 70 or above as recorded in Aadhaar.",
+          "user_friendly_description": "Make sure the Aadhaar record correctly shows an age of 70 or above.",
+          "source_id": "SRC003"
+        },
+        {
+          "step_number": 2,
+          "title": "Complete Aadhaar e-KYC",
+          "description": "Complete mandatory Aadhaar-based e-KYC via the Ayushman App or beneficiary.nha.gov.in, or with assistance at a CSC/empanelled hospital.",
+          "user_friendly_description": "Do the Aadhaar identity check online or get help at a nearby centre.",
+          "source_id": "SRC003"
+        },
+        {
+          "step_number": 3,
+          "title": "Choose scheme if already covered elsewhere",
+          "description": "If already covered under CGHS/ECHS/Ayushman CAPF, make the required one-time choice between the existing scheme and AB-PMJAY during enrolment.",
+          "user_friendly_description": "If you already have CGHS, ECHS, or CAPF coverage, you'll be asked to pick one during enrolment.",
+          "source_id": "SRC003"
+        },
+        {
+          "step_number": 4,
+          "title": "Receive Ayushman Vay Vandana card",
+          "description": "Once verification is complete, the Ayushman Vay Vandana card is issued.",
+          "user_friendly_description": "You'll get your senior-citizen health card once everything is verified.",
+          "source_id": "SRC002"
+        }
+      ]
+    },
+    "CGHS": {
+      "official_application_url": "https://cghs.mohfw.gov.in/",
+      "official_helpline": "NOT_CONFIRMED_FROM_PRIMARY_SOURCE_IN_THIS_PASS",
+      "official_email": "NOT_FOUND_IN_PRIMARY_SOURCE",
+      "steps": [
+        {
+          "step_number": 1,
+          "title": "Confirm eligibility category and residence",
+          "description": "Confirm you fall into a notified CGHS-eligible category and reside in a CGHS-covered city.",
+          "user_friendly_description": "Check that your job/pensioner status and your city of residence both qualify.",
+          "source_id": "SRC004"
+        },
+        {
+          "step_number": 2,
+          "title": "Fill application at official portal",
+          "description": "Fill the CGHS card application at the official portal.",
+          "user_friendly_description": "Fill in the online CGHS application form.",
+          "source_id": "SRC008",
+          "verification_status": "NEEDS_VERIFICATION"
+        },
+        {
+          "step_number": 3,
+          "title": "Submit printed application with documents at Wellness Centre",
+          "description": "Print the completed application and submit it, with supporting documents, at a CGHS Wellness Centre (open Monday-Saturday, typically 7:30 AM-2:00 PM, closed on Central Government holidays) for verification.",
+          "user_friendly_description": "Print your form and take it, with your documents, to a CGHS centre for checking - this process is not fully paperless.",
+          "source_id": "SRC008",
+          "verification_status": "NEEDS_VERIFICATION"
+        }
+      ]
+    },
+    "ESIC": {
+      "official_application_url": "https://www.esic.gov.in/",
+      "official_helpline": "1800-11-2526 / 1800-11-3839 (numbers referenced in the context of ESIC/PM-JAY convergence on nha.gov.in) - MEDIUM confidence, recommend reconfirming on esic.gov.in",
+      "official_email": "NOT_FOUND_IN_PRIMARY_SOURCE",
+      "steps": [
+        {
+          "step_number": 1,
+          "title": "Employer registers the establishment",
+          "description": "The employer registers the establishment with ESIC online (Form 1, with PAN, address proof, registration certificate, and employee list) within 15 days of the Act becoming applicable.",
+          "user_friendly_description": "Your employer is responsible for registering the workplace with ESIC - this isn't something an individual employee does alone.",
+          "source_id": "SRC005",
+          "verification_status": "NEEDS_VERIFICATION"
+        },
+        {
+          "step_number": 2,
+          "title": "ESIC issues code number and employee insurance number",
+          "description": "ESIC issues a code number to the establishment and each covered employee receives an insurance number / Pehchan card.",
+          "user_friendly_description": "Once registered, you get your own ESI insurance number and card.",
+          "source_id": "SRC005",
+          "verification_status": "NEEDS_VERIFICATION"
+        }
+      ]
+    },
+    "CMCHIS": {
+      "official_application_url": "NOT_CONFIRMED - commonly cited as cmchistn.gov.in but this could not be independently verified as live/authoritative in this research pass",
+      "official_helpline": "Reported Tamil-language toll-free support line and contact emails (tnhealthinsurance@gmail.com, cmchis@uiic.co.in) - LOW confidence, sourced only from a Government-of-India aggregator, not the scheme's own portal",
+      "official_email": "tnhealthinsurance@gmail.com ; cmchis@uiic.co.in (UNVERIFIED - see note above)",
+      "steps": [
+        {
+          "step_number": 1,
+          "title": "Obtain income certificate",
+          "description": "Obtain an income certificate from the Village Administrative Officer (VAO) or Revenue authorities.",
+          "user_friendly_description": "Get an income certificate from your local VAO or revenue office.",
+          "source_id": "SRC006"
+        },
+        {
+          "step_number": 2,
+          "title": "Gather documents and visit enrolment centre",
+          "description": "Gather Aadhaar card, ration/family card, and income certificate, then visit the designated enrolment centre.",
+          "user_friendly_description": "Take your Aadhaar, ration card, and income certificate to the enrolment centre.",
+          "source_id": "SRC006"
+        },
+        {
+          "step_number": 3,
+          "title": "Verification and biometric capture",
+          "description": "Present documents for verification; complete fingerprint and eye scan and have a photograph taken.",
+          "user_friendly_description": "Your documents are checked and your fingerprints, eye scan, and photo are taken.",
+          "source_id": "SRC006"
+        },
+        {
+          "step_number": 4,
+          "title": "Receive CMCHIS e-card",
+          "description": "Once verified, the CMCHIS e-card is issued.",
+          "user_friendly_description": "You get your CMCHIS health card once everything checks out.",
+          "source_id": "SRC006"
+        }
+      ]
+    }
+  }
+}

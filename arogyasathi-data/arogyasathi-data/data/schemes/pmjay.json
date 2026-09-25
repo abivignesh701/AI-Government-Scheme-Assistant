@@ -1,0 +1,46 @@
+{
+  "scheme_id": "PMJAY",
+  "scheme_name": "Ayushman Bharat - Pradhan Mantri Jan Arogya Yojana",
+  "short_name": "AB PM-JAY / PM-JAY",
+  "official_name": "Pradhan Mantri Jan Arogya Yojana (PM-JAY), the second component of Ayushman Bharat",
+  "government_level": "central",
+  "responsible_ministry": "Ministry of Health and Family Welfare, Government of India",
+  "responsible_department": "National Health Authority (NHA)",
+  "implementing_authority": "National Health Authority (NHA) at central level; State Health Agencies (SHAs) at state level",
+  "scheme_category": "government_funded_health_insurance_assurance",
+  "description": "World's largest government-funded health assurance scheme, providing a Rs 5 lakh per family per year cashless cover for secondary and tertiary hospitalization to the bottom 40% of India's population, identified via SECC 2011.",
+  "applicable_states": {
+    "type": "central_scheme_most_states",
+    "excluded_states_reported": [
+      "West Bengal",
+      "Delhi"
+    ],
+    "verification_status": "NEEDS_VERIFICATION",
+    "note": "Exclusion status of Delhi/West Bengal should be reconfirmed as of the current date; this can change."
+  },
+  "target_population": "Bottom 40% of India's population (approx. 12 crore poor/vulnerable families, ~55 crore beneficiaries) identified via SECC 2011 deprivation/occupational criteria, plus former RSBY-covered families.",
+  "eligibility_factors_used": [
+    "beneficiary_database_status",
+    "urban_occupation_category",
+    "rural_deprivation_criteria_met"
+  ],
+  "eligibility_factors_not_applicable": [
+    "age",
+    "income_bracket (no declared-income test; SECC-based instead)",
+    "gender",
+    "family_size (no cap)"
+  ],
+  "rule_file": "../rules/pmjay_rules.json",
+  "benefit_file": "../benefits/benefits.json",
+  "document_file": "../documents/documents.json",
+  "application_file": "../applications/applications.json",
+  "information_date": "NOT_DATED_ON_SOURCE_PAGE",
+  "source_date": "N/A",
+  "accessed_date": "2026-09-25",
+  "last_verified": "2026-09-25",
+  "current_status": "ACTIVE",
+  "primary_source_ids": [
+    "SRC001",
+    "SRC010"
+  ]
+}

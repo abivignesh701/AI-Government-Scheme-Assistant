@@ -1,0 +1,26 @@
+{
+  "beneficiary": {
+    "en": "Beneficiary",
+    "ta": "பயனாளி",
+    "hi": "लाभार्थी",
+    "simple_en": "The person who receives the scheme's benefits",
+    "simple_ta": "திட்டத்தின் பயனைப் பெறும் நபர்",
+    "simple_hi": "वह व्यक्ति जिसे योजना का लाभ मिलता है"
+  },
+  "empanelled_hospital": {
+    "en": "Empanelled Hospital",
+    "ta": "அங்கீகரிக்கப்பட்ட மருத்துவமனை",
+    "hi": "पैनल में शामिल अस्पताल",
+    "simple_en": "A hospital officially approved under the scheme",
+    "simple_ta": "திட்டத்தின் கீழ் அதிகாரப்பூர்வமாக அங்கீகரிக்கப்பட்ட மருத்துவமனை",
+    "simple_hi": "योजना के तहत आधिकारिक रूप से स्वीकृत अस्पताल"
+  },
+  "income_certificate": {
+    "en": "Income Certificate",
+    "ta": "வருமானச் சான்றிதழ்",
+    "hi": "आय प्रमाण पत्र",
+    "simple_en": "A document showing your family's yearly income",
+    "simple_ta": "உங்கள் குடும்பத்தின் ஆண்டு வருமானத்தைக் காட்டும் ஆவணம்",
+    "simple_hi": "आपके परिवार की वार्षिक आय दिखाने वाला दस्तावेज़"
+  }
+}

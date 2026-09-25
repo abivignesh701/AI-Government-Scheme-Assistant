@@ -1,0 +1,46 @@
+{
+  "scheme_id": "VAYVANDANA",
+  "scheme_name": "AB PM-JAY expansion for senior citizens (Ayushman Vay Vandana Yojana)",
+  "short_name": "AB PM-JAY Vay Vandana",
+  "official_name": "Ayushman Bharat Pradhan Mantri Jan Arogya Yojana - Vay Vandana (70+ expansion)",
+  "government_level": "central",
+  "responsible_ministry": "Ministry of Health and Family Welfare, Government of India",
+  "responsible_department": "National Health Authority (NHA)",
+  "implementing_authority": "National Health Authority (NHA)",
+  "scheme_category": "government_funded_health_insurance_assurance",
+  "description": "Universal (income-agnostic) expansion of AB PM-JAY covering all Indian citizens aged 70 and above, launched 29 October 2024, providing Rs 5 lakh/year cover (or an additional Rs 5 lakh top-up for families already on PM-JAY).",
+  "applicable_states": {
+    "type": "central_scheme_most_states",
+    "excluded_states_reported": [
+      "Delhi",
+      "West Bengal"
+    ],
+    "verification_status": "NEEDS_VERIFICATION"
+  },
+  "target_population": "All Indian citizens aged 70 years and above, irrespective of income or socio-economic status.",
+  "eligibility_factors_used": [
+    "age",
+    "aadhaar_ekyc_completed",
+    "existing_other_govt_health_scheme"
+  ],
+  "eligibility_factors_not_applicable": [
+    "income_bracket (explicitly none)",
+    "occupation",
+    "rural_urban",
+    "social_economic_category"
+  ],
+  "rule_file": "../rules/vayvandana_rules.json",
+  "benefit_file": "../benefits/benefits.json",
+  "document_file": "../documents/documents.json",
+  "application_file": "../applications/applications.json",
+  "information_date": "2025-02-11",
+  "source_date": "2025-02-11",
+  "accessed_date": "2026-09-25",
+  "last_verified": "2026-09-25",
+  "current_status": "ACTIVE",
+  "primary_source_ids": [
+    "SRC002",
+    "SRC003",
+    "SRC010"
+  ]
+}

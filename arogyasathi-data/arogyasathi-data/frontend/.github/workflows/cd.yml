@@ -1,0 +1,33 @@
+name: ArogyaSathi CD
+
+on:
+  push:
+    tags:
+      - 'v*.*.*' # Trigger on version tags
+
+jobs:
+  deploy-staging:
+    runs-on: ubuntu-latest
+    environment: staging
+    steps:
+      - uses: actions/checkout@v3
+      - name: Build and Push Docker Image
+        run: echo "Simulating docker build & push to staging registry..."
+      - name: Deploy to Staging
+        run: echo "Simulating deployment to staging environment..."
+      
+  deploy-production:
+    needs: deploy-staging
+    runs-on: ubuntu-latest
+    environment: 
+      name: production
+      url: https://arogyasathi.example.gov
+    steps:
+      - name: Await Manual Approval
+        run: echo "Environment requires manual approval via GitHub settings."
+      - name: Backup Canonical DB
+        run: echo "Simulating Database Backup..."
+      - name: Deploy Release
+        run: echo "Simulating deployment to production..."
+      - name: Post-Deploy Smoke Test
+        run: echo "Simulating health & ready endpoint pings..."
